@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Victorina Carelli UX</title>
+<meta name="description" content="Victorina Carelli, diseñadora UX/UI. Portfolio, asesorías y presupuestos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: mobile-first single column; the site is a friendly design canvas —
+   selection handles, multiplayer cursors, redlines and pill tags as Victo's own UX vernacular. */
+:root{
+  --bg:#FAF7F5;
+  --surface:#FFFFFF;
+  --ink:#1D1630;
+  --muted:#5E5672;
+  --line:#E6DFEA;
+  --select:#2F6BFF;
+  --lila:#CDB8F6;
+  --lima:#CBF25C;
+  --rosa:#FFB8DA;
+  --amarillo:#FFE16B;
+  --on-pastel:#1D1630;
+  --grid:rgba(120,90,180,.10);
+  --font-display:"Bricolage Grotesque", "Arial Rounded MT Bold", system-ui, sans-serif;
+  --font-body:"Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --r-pill:999px;
+  --r-card:22px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#16121F;--surface:#201A2D;--ink:#F4EFFB;--muted:#B5ABC8;--line:#342B45;
+    --select:#6B95FF;--grid:rgba(200,180,255,.07);color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#16121F;--surface:#201A2D;--ink:#F4EFFB;--muted:#B5ABC8;--line:#342B45;
+  --select:#6B95FF;--grid:rgba(200,180,255,.07);color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{
+  background:var(--bg);color:var(--ink);
+  font-family:var(--font-body);font-size:16px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--select);outline-offset:3px;border-radius:6px}
+.wrap{
+  width:100%;max-width:1120px;margin-inline:auto;
+  padding-left:max(16px, env(safe-area-inset-left,0px));
+  padding-right:max(16px, env(safe-area-inset-right,0px));
+}
+h1,h2,h3{font-family:var(--font-display);line-height:1.02;letter-spacing:-.02em;text-wrap:balance;margin:0}
+p{margin:0}
+.mono{font-family:var(--font-mono);font-size:12px;letter-spacing:.02em}
+.eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.sample{
+  display:inline-block;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
+  border:1px dashed currentColor;border-radius:var(--r-pill);padding:2px 8px;opacity:.75
+}
+
+/* ---------- Selection highlight (Figma-style handles) ---------- */
+.sel{
+  position:relative;display:inline-block;padding:0 .12em;
+  background:color-mix(in srgb, var(--select) 16%, transparent);
+  box-shadow:inset 0 0 0 1.5px var(--select);
+}
+.sel::before,.sel::after{
+  content:"";position:absolute;width:2px;background:var(--select);
+}
+.sel::before{left:-1px;top:-.18em;bottom:0}
+.sel::after{right:-1px;top:0;bottom:-.18em}
+.sel i{position:absolute;width:.22em;height:.22em;min-width:8px;min-height:8px;border-radius:50%;background:var(--select)}
+.sel i:first-child{left:-1px;top:-.18em;transform:translate(-40%,-60%)}
+.sel i:last-child{right:-1px;bottom:-.18em;transform:translate(40%,60%)}
+
+/* ---------- Header ---------- */
+.top{
+  position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
+  background:color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.top .wrap{display:flex;align-items:center;gap:10px;padding-block:10px}
+.logo{font-family:var(--font-display);font-weight:800;font-size:20px;text-decoration:none;letter-spacing:-.02em;margin-right:auto;white-space:nowrap}
+.logo span{color:var(--select)}
+.nav{display:none}
+.lang{
+  display:flex;border:1.5px solid var(--ink);border-radius:var(--r-pill);overflow:hidden;flex:none
+}
+.lang button{
+  font:600 12px/1 var(--font-mono);padding:7px 9px;border:0;background:transparent;color:var(--ink);cursor:pointer
+}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font:600 15px/1 var(--font-body);text-decoration:none;cursor:pointer;
+  border-radius:var(--r-pill);padding:14px 20px;border:1.5px solid var(--ink);
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.btn-primary{background:var(--ink);color:var(--bg)}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--select)}
+.btn-sm{padding:9px 14px;font-size:13px}
+@media (prefers-reduced-motion: reduce){.btn{transition:none}.btn:hover{transform:none}}
+
+/* ---------- Hero ---------- */
+.hero{
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size:32px 32px;
+  border-bottom:1px solid var(--line);
+}
+.hero .wrap{padding-block:36px 44px;display:grid;gap:28px}
+.hero h1{font-size:clamp(40px, 11vw, 84px);font-weight:800}
+.hero .lead{font-size:18px;color:var(--muted);max-width:34ch}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:10px}
+.photo{
+  position:relative;aspect-ratio:4/5;max-width:100%;width:100%;
+  border-radius:var(--r-card);background:var(--lila);color:var(--on-pastel);
+  display:grid;place-items:center;text-align:center;overflow:visible;
+}
+.photo .ph{
+  display:grid;gap:8px;justify-items:center;padding:24px;
+  border:2px dashed color-mix(in srgb, var(--on-pastel) 40%, transparent);border-radius:16px;margin:18px;align-self:stretch;justify-self:stretch;align-content:center
+}
+.photo svg{width:44px;height:44px}
+.cursor{
+  position:absolute;display:flex;align-items:flex-start;gap:2px;pointer-events:none;
+  animation:float 6s ease-in-out infinite;
+}
+.cursor svg{width:20px;height:20px;flex:none}
+.cursor b{
+  font:600 12px/1 var(--font-body);color:#fff;padding:6px 9px;border-radius:4px 10px 10px 10px;margin-top:14px;white-space:nowrap
+}
+.cursor.c1{right:12px;top:16px}
+.cursor.c1 b{background:var(--select)}
+.cursor.c1 svg path{fill:var(--select)}
+.cursor.c2{left:-4px;bottom:22%;animation-delay:-3s}
+.cursor.c2 b{background:#E2459B}
+.cursor.c2 svg path{fill:#E2459B}
+@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(-8px,6px)}}
+@media (prefers-reduced-motion: reduce){.cursor{animation:none}}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{
+  font:500 13px/1 var(--font-body);padding:8px 12px;border-radius:var(--r-pill);
+  border:1.5px solid var(--ink);background:var(--surface)
+}
+.redline{display:flex;align-items:center;gap:8px;color:#E2459B}
+.redline::before,.redline::after{content:"";height:1px;flex:1;background:currentColor}
+
+/* ---------- Marquee ---------- */
+.marquee{background:var(--lima);color:var(--on-pastel);overflow:hidden;border-bottom:1.5px solid var(--on-pastel);border-top:1.5px solid var(--on-pastel)}
+.marquee .track{display:flex;width:max-content;animation:slide 28s linear infinite}
+.marquee span{font:600 15px/1 var(--font-body);padding:12px 18px;white-space:nowrap;display:flex;align-items:center;gap:18px}
+.marquee span::after{content:"✦";font-size:13px}
+@keyframes slide{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){.marquee .track{animation:none}}
+
+/* ---------- Sections ---------- */
+section{scroll-margin-top:70px}
+.sec{padding-block:64px}
+.sec-head{display:grid;gap:12px;margin-bottom:28px}
+.sec-head h2{font-size:clamp(34px, 9vw, 60px);font-weight:800}
+
+/* Pains: scattered pills */
+.pains{
+  position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);
+  padding:28px 16px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px 8px;
+}
+.pain{
+  font:600 15px/1.2 var(--font-body);padding:13px 18px;border-radius:var(--r-pill);color:var(--on-pastel);
+  max-width:100%;text-align:center
+}
+.pain:nth-child(1){background:var(--lila);transform:rotate(-4deg)}
+.pain:nth-child(2){background:var(--amarillo);transform:rotate(3deg)}
+.pain:nth-child(3){background:var(--rosa);transform:rotate(-2deg)}
+.pain:nth-child(4){background:var(--lima);transform:rotate(5deg)}
+.pain:nth-child(5){background:var(--lila);transform:rotate(-5deg)}
+.pain:nth-child(6){background:var(--rosa);transform:rotate(2deg)}
+.pains-foot{margin-top:22px;font-size:18px;max-width:46ch}
+.pains-foot strong{font-family:var(--font-display);font-size:22px;display:block;margin-bottom:4px}
+
+/* Portfolio cards as files/windows */
+.grid{display:grid;gap:18px}
+.project{
+  background:var(--surface);border:1.5px solid var(--ink);border-radius:var(--r-card);overflow:hidden;
+  display:flex;flex-direction:column;text-decoration:none;transition:transform .2s ease, box-shadow .2s ease
+}
+.project:hover{transform:translate(-3px,-3px);box-shadow:5px 5px 0 var(--ink)}
+@media (prefers-reduced-motion: reduce){.project{transition:none}.project:hover{transform:none}}
+.bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1.5px solid var(--ink)}
+.bar i{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--ink)}
+.bar .mono{margin-left:auto;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.thumb{aspect-ratio:16/11;max-width:100%;padding:18px;display:grid;place-items:center}
+.wf{width:min(62%,180px);aspect-ratio:9/16;max-width:100%;background:var(--surface);border:1.5px solid var(--on-pastel);border-radius:16px;padding:10px 8px;display:grid;gap:6px;align-content:start;box-shadow:6px 6px 0 color-mix(in srgb, var(--on-pastel) 85%, transparent)}
+.wf b{display:block;height:8px;border-radius:4px;background:var(--line)}
+.wf b.h{height:14px;width:70%;background:var(--ink)}
+.wf b.img{height:56px;background:color-mix(in srgb, var(--select) 22%, var(--line))}
+.wf b.s{width:55%}
+.wf b.cta{height:18px;border-radius:999px;background:var(--select);margin-top:6px}
+.wide .wf{aspect-ratio:16/10;width:min(88%,320px);grid-template-columns:1fr 1fr}
+.wide .wf b.h,.wide .wf b.cta{grid-column:1/-1}
+.wide .wf b.img{height:44px}
+.p-body{padding:16px 18px 20px;display:grid;gap:8px;border-top:1.5px solid var(--ink)}
+.p-body h3{font-size:24px;font-weight:700}
+.p-body p{color:var(--muted);font-size:15px}
+.p-meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.chip{font:500 12px/1 var(--font-mono);padding:6px 9px;border-radius:var(--r-pill);background:var(--bg);border:1px solid var(--line)}
+.result{font-weight:600;color:var(--ink)!important}
+.see-all{margin-top:22px}
+
+/* Services */
+.service{
+  border-radius:var(--r-card);padding:22px 20px;color:var(--on-pastel);display:grid;gap:14px;align-content:start;
+  border:1.5px solid var(--on-pastel)
+}
+.service.s1{background:var(--lila)}
+.service.s2{background:var(--lima)}
+.service.s3{background:var(--amarillo)}
+.service h3{font-size:28px;font-weight:800}
+.service .for{font-weight:600}
+.service ul{margin:0;padding:0;list-style:none;display:grid;gap:6px}
+.service li{display:flex;gap:8px;font-size:15px}
+.service li::before{content:"";flex:none;width:16px;height:16px;margin-top:3px;border:1.5px solid var(--on-pastel);border-radius:4px;background:
+  linear-gradient(45deg, transparent 45%, var(--on-pastel) 45% 58%, transparent 58%) }
+.service .price{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;padding-top:12px;border-top:1.5px dashed color-mix(in srgb, var(--on-pastel) 45%, transparent)}
+.service .price strong{font-family:var(--font-display);font-size:22px}
+.service .btn{border-color:var(--on-pastel);background:var(--on-pastel);color:#fff}
+.service .btn:hover{box-shadow:3px 3px 0 #fff}
+
+/* Bio */
+.bio{display:grid;gap:28px}
+.bio .photo{background:var(--rosa);aspect-ratio:1/1}
+.bio-text{display:grid;gap:16px;max-width:60ch}
+.bio-text h2{font-size:clamp(34px, 9vw, 60px);font-weight:800}
+.bio-text p{font-size:17px}
+.facts{display:grid;gap:10px;margin-top:6px}
+.fact{display:flex;gap:12px;align-items:baseline;border-top:1px solid var(--line);padding-top:10px}
+.fact .mono{color:var(--muted);flex:none;width:96px}
+.ctx{
+  background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:6px;
+  box-shadow:0 10px 30px rgba(29,22,48,.14);width:min(100%,260px);display:grid;
+}
+.ctx a,.ctx button{
+  font:500 14px/1 var(--font-body);color:var(--ink);background:none;border:0;text-align:left;text-decoration:none;
+  padding:10px 12px;border-radius:8px;cursor:pointer;display:flex;justify-content:space-between;gap:12px
+}
+.ctx a:hover,.ctx button:hover{background:var(--select);color:#fff}
+.ctx hr{border:0;border-top:1px solid var(--line);margin:4px 6px}
+.ctx kbd{font:400 11px/1 var(--font-mono);opacity:.6}
+
+/* Contact */
+.contact{background:var(--ink);color:var(--bg);border-radius:28px 28px 0 0}
+.contact .sec{padding-block:64px 40px}
+.contact h2{font-size:clamp(44px, 13vw, 96px);font-weight:800;line-height:.98}
+.contact .sel{background:color-mix(in srgb, var(--select) 30%, transparent)}
+.contact .lead{color:color-mix(in srgb, var(--bg) 75%, transparent);font-size:18px;max-width:42ch;margin-top:16px}
+.c-grid{display:grid;gap:28px;margin-top:36px}
+form{display:grid;gap:14px;background:var(--surface);color:var(--ink);border-radius:var(--r-card);padding:20px}
+.field{display:grid;gap:6px}
+label{font-weight:600;font-size:14px}
+input,select,textarea{
+  font:400 16px/1.4 var(--font-body);color:var(--ink);background:var(--bg);
+  border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;width:100%;min-width:0
+}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--select);box-shadow:0 0 0 3px color-mix(in srgb, var(--select) 25%, transparent)}
+textarea{min-height:110px;resize:vertical}
+.chips-input{display:flex;flex-wrap:wrap;gap:8px;border:0;padding:0;margin:0}
+.chips-input legend{font-weight:600;font-size:14px;margin-bottom:6px;padding:0}
+.chips-input label{font-weight:500;cursor:pointer}
+.chips-input input{position:absolute;opacity:0;width:1px;height:1px}
+.chips-input span{display:inline-block;padding:9px 13px;border-radius:var(--r-pill);border:1.5px solid var(--line);background:var(--bg);font-size:14px}
+.chips-input input:checked + span{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chips-input input:focus-visible + span{outline:3px solid var(--select);outline-offset:2px}
+form .btn{width:100%;margin-top:4px}
+.form-note{font-size:13px;color:var(--muted)}
+.form-ok{background:var(--lima);color:var(--on-pastel);border-radius:12px;padding:12px 14px;font-weight:600}
+.channels{display:grid;gap:10px;align-content:start}
+.channel{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  border:1.5px solid color-mix(in srgb, var(--bg) 30%, transparent);border-radius:16px;padding:14px 16px;text-decoration:none;color:var(--bg)
+}
+.channel:hover{border-color:var(--bg)}
+.channel div{min-width:0}
+.channel small{display:block;font:400 12px/1.3 var(--font-mono);opacity:.7;text-transform:uppercase;letter-spacing:.06em}
+.channel strong{display:block;font-weight:600;overflow-wrap:anywhere}
+.channel .arrow{font-size:20px;flex:none}
+.copy{font:600 12px/1 var(--font-mono);border:1.5px solid var(--bg);color:var(--bg);background:transparent;padding:8px 10px;border-radius:var(--r-pill);cursor:pointer;flex:none}
+footer{padding-block:28px;border-top:1px solid color-mix(in srgb, var(--bg) 18%, transparent);margin-top:48px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:13px;opacity:.8}
+
+/* ---------- Larger screens ---------- */
+@media (min-width:720px){
+  .nav{display:flex;gap:4px;border:1.5px solid var(--ink);border-radius:var(--r-pill);padding:4px;margin-right:auto}
+  .nav a{font:500 14px/1 var(--font-body);text-decoration:none;padding:8px 12px;border-radius:var(--r-pill)}
+  .nav a:hover{background:var(--ink);color:var(--bg)}
+  .logo{margin-right:0}
+  .top .wrap{gap:16px}
+  .hero .wrap{grid-template-columns:1.25fr .85fr;align-items:center;padding-block:64px 72px}
+  .grid.three{grid-template-columns:repeat(2,1fr)}
+  .grid.three .wide{grid-column:1/-1}
+  .bio{grid-template-columns:.8fr 1.2fr;align-items:center}
+  .c-grid{grid-template-columns:1.2fr .8fr}
+  .pains{padding:44px 32px;gap:16px 12px}
+  .sec{padding-block:96px}
+}
+@media (min-width:1024px){
+  .grid.services{grid-template-columns:repeat(3,1fr)}
+  .grid.three{grid-template-columns:1.4fr 1fr}
+  .grid.three .wide{grid-column:auto;grid-row:span 2}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#inicio">victo<span>.</span>ux</a>
+    <nav class="nav" aria-label="Secciones">
+      <a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a>
+      <a href="#servicios" data-i18n="nav_services">Asesorías</a>
+      <a href="#bio" data-i18n="nav_bio">Sobre mí</a>
+      <a href="#contacto" data-i18n="nav_contact">Contacto</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" id="lang-es" aria-pressed="true" data-lang="es">ES</button>
+      <button type="button" id="lang-en" aria-pressed="false" data-lang="en">EN</button>
+    </div>
+    <a class="btn btn-primary btn-sm" href="#contacto" data-i18n="cta_short">Presupuesto</a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section id="inicio" class="hero">
+    <div class="wrap">
+      <div style="display:grid;gap:22px;min-width:0">
+        <p class="eyebrow" data-i18n="hero_eyebrow">UX/UI Designer · Asesorías · Diseño web</p>
+        <h1 data-i18n-html="hero_title">Diseño webs y apps que tus clientes <span class="sel"><i></i>entienden<i></i></span> a la primera.</h1>
+        <p class="lead" data-i18n="hero_lead">Ordeno lo que tenés en la cabeza y lo convierto en una experiencia clara, linda y que vende.</p>
+        <div class="ctas">
+          <a class="btn btn-primary" href="#contacto" data-i18n="cta_quote">Pedí tu presupuesto →</a>
+          <a class="btn btn-ghost" href="#portfolio" data-i18n="cta_work">Ver proyectos</a>
+        </div>
+        <div class="tags" aria-label="Especialidades">
+          <span class="tag">UX research</span>
+          <span class="tag">UI design</span>
+          <span class="tag">Wireframes</span>
+          <span class="tag" data-i18n="tag_writing">UX writing</span>
+          <span class="tag" data-i18n="tag_ai">Webs con IA</span>
+        </div>
+      </div>
+      <div style="min-width:0;display:grid;gap:10px">
+        <div class="photo" role="img" aria-label="Espacio para foto de Victo">
+          <div class="ph">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-8 8"/></svg>
+            <strong data-i18n="ph_photo">Tu foto recortada acá</strong>
+            <span class="mono" data-i18n="ph_photo_hint">pose divertida, fondo liso</span>
+          </div>
+          <div class="cursor c1" aria-hidden="true">
+            <svg viewBox="0 0 20 20"><path d="M2 2l6 16 2.4-6.6L17 9z" stroke="#fff" stroke-width="1.2"/></svg>
+            <b>Victo</b>
+          </div>
+          <div class="cursor c2" aria-hidden="true">
+            <svg viewBox="0 0 20 20"><path d="M2 2l6 16 2.4-6.6L17 9z" stroke="#fff" stroke-width="1.2"/></svg>
+            <b data-i18n="cursor_you">Vos</b>
+          </div>
+        </div>
+        <div class="redline mono" aria-hidden="true">24px</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="track" id="marquee"></div>
+  </div>
+
+  <!-- PAINS -->
+  <section class="sec" aria-labelledby="pains-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow" data-i18n="pains_eyebrow">Diagnóstico rápido</p>
+        <h2 id="pains-title" data-i18n-html="pains_title">¿Tu web o app <span class="sel"><i></i>no<i></i></span> está funcionando?</h2>
+      </div>
+      <div class="pains">
+        <span class="pain" data-i18n="pain1">La gente entra y se va</span>
+        <span class="pain" data-i18n="pain2">Nadie completa el formulario</span>
+        <span class="pain" data-i18n="pain3">Tu web no se ve como tu marca</span>
+        <span class="pain" data-i18n="pain4">En el celu es un caos</span>
+        <span class="pain" data-i18n="pain5">Tenés la idea pero no sabés por dónde empezar</span>
+        <span class="pain" data-i18n="pain6">Te preguntan siempre lo mismo</span>
+      </div>
+      <p class="pains-foot"><strong data-i18n="pains_foot_t">Casi siempre es un problema de experiencia.</strong><span data-i18n="pains_foot">Y tiene solución: entender a tus usuarios y diseñar a partir de eso.</span></p>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio" class="sec" style="padding-top:0" aria-labelledby="portfolio-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow" data-i18n="pf_eyebrow">Portfolio</p>
+        <h2 id="portfolio-title" data-i18n="pf_title">Proyectos seleccionados</h2>
+      </div>
+      <div class="grid three">
+        <a class="project wide" href="#portfolio">
+          <div class="bar"><i></i><i></i><i></i><span class="mono">caso-01.fig</span></div>
+          <div class="thumb" style="background:var(--lila)">
+            <div class="wf"><b class="h"></b><b class="img"></b><b class="img"></b><b></b><b class="s"></b><b></b><b class="s"></b><b class="cta"></b></div>
+          </div>
+          <div class="p-body">
+            <div class="p-meta"><span class="sample" data-i18n="sample">Ejemplo</span><span class="chip">UX research</span><span class="chip">UI</span></div>
+            <h3 data-i18n="p1_t">App de turnos médicos</h3>
+            <p data-i18n="p1_d">Rediseño del flujo de reserva para que pedir un turno lleve menos de un minuto.</p>
+            <p class="result" data-i18n="p1_r">Resultado: menos abandonos en el registro</p>
+          </div>
+        </a>
+        <a class="project" href="#portfolio">
+          <div class="bar"><i></i><i></i><i></i><span class="mono">caso-02.fig</span></div>
+          <div class="thumb" style="background:var(--amarillo)">
+            <div class="wf" style="width:min(44%,130px)"><b class="h"></b><b class="img"></b><b></b><b class="s"></b><b class="cta"></b></div>
+          </div>
+          <div class="p-body">
+            <div class="p-meta"><span class="sample" data-i18n="sample">Ejemplo</span><span class="chip">E-commerce</span></div>
+            <h3 data-i18n="p2_t">Tienda online de cerámica</h3>
+            <p data-i18n="p2_d">Checkout más simple y fichas de producto que responden las dudas.</p>
+          </div>
+        </a>
+        <a class="project" href="#portfolio">
+          <div class="bar"><i></i><i></i><i></i><span class="mono">caso-03.fig</span></div>
+          <div class="thumb" style="background:var(--rosa)">
+            <div class="wf" style="width:min(44%,130px)"><b class="h"></b><b></b><b class="s"></b><b class="img"></b><b class="cta"></b></div>
+          </div>
+          <div class="p-body">
+            <div class="p-meta"><span class="sample" data-i18n="sample">Ejemplo</span><span class="chip">Landing</span><span class="chip" data-i18n="chip_ai">Con IA</span></div>
+            <h3 data-i18n="p3_t">Landing para una coach</h3>
+            <p data-i18n="p3_d">Web hecha con IA en una semana, lista para recibir consultas.</p>
+          </div>
+        </a>
+      </div>
+      <a class="btn btn-ghost see-all" href="https://www.behance.net/victoricarelli" target="_blank" rel="noopener" data-i18n="pf_all">Ver todo en Behance ↗</a>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="servicios" class="sec" style="padding-top:0" aria-labelledby="sv-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow" data-i18n="sv_eyebrow">Mis servicios</p>
+        <h2 id="sv-title" data-i18n-html="sv_title">Asesorías para que tu producto <span class="sel"><i></i>funcione<i></i></span></h2>
+        <p><span class="sample" data-i18n="sample_services">Textos de ejemplo</span></p>
+      </div>
+      <div class="grid services">
+        <article class="service s1">
+          <h3 data-i18n="s1_t">Auditoría UX exprés</h3>
+          <p class="for" data-i18n="s1_for">Para webs o apps que ya existen y no convierten.</p>
+          <ul>
+            <li data-i18n="s1_a">Revisión de tu web o app</li>
+            <li data-i18n="s1_b">Informe con problemas priorizados</li>
+            <li data-i18n="s1_c">Videollamada de 45 minutos</li>
+          </ul>
+          <div class="price"><span data-i18n="from">desde</span><strong>USD —</strong></div>
+          <a class="btn" href="#contacto" data-i18n="s_cta">Quiero esta</a>
+        </article>
+        <article class="service s2">
+          <h3 data-i18n="s2_t">Asesoría 1:1</h3>
+          <p class="for" data-i18n="s2_for">Para emprendedores y equipos que están diseñando algo nuevo.</p>
+          <ul>
+            <li data-i18n="s2_a">Sesión en vivo sobre tu proyecto</li>
+            <li data-i18n="s2_b">Feedback sobre flujos y pantallas</li>
+            <li data-i18n="s2_c">Próximos pasos claros</li>
+          </ul>
+          <div class="price"><span data-i18n="from">desde</span><strong>USD —</strong></div>
+          <a class="btn" href="#contacto" data-i18n="s_cta">Quiero esta</a>
+        </article>
+        <article class="service s3">
+          <h3 data-i18n="s3_t">Tu web con IA</h3>
+          <p class="for" data-i18n="s3_for">Para quien necesita una web linda y rápida, sin depender de un programador.</p>
+          <ul>
+            <li data-i18n="s3_a">Estructura y textos pensados en UX</li>
+            <li data-i18n="s3_b">Diseño y desarrollo con IA</li>
+            <li data-i18n="s3_c">Publicada con tu dominio</li>
+          </ul>
+          <div class="price"><span data-i18n="from">desde</span><strong>USD —</strong></div>
+          <a class="btn" href="#contacto" data-i18n="s_cta">Quiero esta</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIO -->
+  <section id="bio" class="sec" style="padding-top:0" aria-labelledby="bio-title">
+    <div class="wrap bio">
+      <div style="display:grid;gap:14px;min-width:0">
+        <div class="photo" role="img" aria-label="Espacio para foto de Victo">
+          <div class="ph">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-8 8"/></svg>
+            <strong data-i18n="ph_photo2">Otra foto tuya</strong>
+          </div>
+        </div>
+        <div class="ctx" role="menu" aria-label="Accesos rápidos">
+          <button type="button" role="menuitem" id="ctx-copy" data-copy="victorinacarelli@gmail.com"><span data-i18n="ctx_copy">Copiar mail</span><kbd>⌘C</kbd></button>
+          <a role="menuitem" href="https://wa.me/5491165683621" target="_blank" rel="noopener"><span data-i18n="ctx_wa">Escribirme por WhatsApp</span><kbd>↗</kbd></a>
+          <hr>
+          <a role="menuitem" href="https://www.behance.net/victoricarelli" target="_blank" rel="noopener"><span data-i18n="ctx_be">Ver Behance</span><kbd>↗</kbd></a>
+          <a role="menuitem" href="https://www.instagram.com/victorinacarelli.ux" target="_blank" rel="noopener"><span data-i18n="ctx_ig">Ver Instagram</span><kbd>↗</kbd></a>
+        </div>
+      </div>
+      <div class="bio-text">
+        <p class="eyebrow" data-i18n="bio_eyebrow">Mini bio</p>
+        <h2 id="bio-title" data-i18n-html="bio_title">Hola, soy <span class="sel"><i></i>Victo<i></i></span></h2>
+        <p data-i18n="bio_p1">Soy diseñadora UX/UI. Me encanta escuchar a las personas, encontrar dónde se traban y diseñar soluciones simples que se sienten bien.</p>
+        <p data-i18n="bio_p2">Trabajo con emprendedores, marcas y equipos que quieren que su web o app sea clara, linda y fácil de usar.</p>
+        <p><span class="sample" data-i18n="sample_bio">Bio de ejemplo, la cambiamos por la tuya</span></p>
+        <div class="facts">
+          <div class="fact"><span class="mono" data-i18n="f_tools">Herramientas</span><span>Figma, FigJam, Notion, Claude</span></div>
+          <div class="fact"><span class="mono" data-i18n="f_lang">Idiomas</span><span data-i18n="f_lang_v">Español, inglés</span></div>
+          <div class="fact"><span class="mono" data-i18n="f_where">Desde</span><span data-i18n="f_where_v">Argentina, para todo el mundo</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contacto" class="contact" aria-labelledby="ct-title">
+    <div class="wrap sec">
+      <p class="eyebrow" style="color:inherit;opacity:.7" data-i18n="ct_eyebrow">Contáctame / presupuestá</p>
+      <h2 id="ct-title" data-i18n-html="ct_title">Trabajemos <span class="sel"><i></i>juntos<i></i></span></h2>
+      <p class="lead" data-i18n="ct_lead">Contame qué necesitás y te respondo en menos de 48 horas con una propuesta.</p>
+
+      <div class="c-grid">
+        <form id="quote-form" novalidate>
+          <div class="field">
+            <label for="f-name" data-i18n="f_name">Tu nombre</label>
+            <input id="f-name" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="f-email" data-i18n="f_email">Tu email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <fieldset class="chips-input">
+            <legend data-i18n="f_need">¿Qué necesitás?</legend>
+            <label><input type="radio" name="need" id="need-audit" value="audit" checked><span data-i18n="s1_t">Auditoría UX exprés</span></label>
+            <label><input type="radio" name="need" id="need-1on1" value="1on1"><span data-i18n="s2_t">Asesoría 1:1</span></label>
+            <label><input type="radio" name="need" id="need-web" value="web"><span data-i18n="s3_t">Tu web con IA</span></label>
+            <label><input type="radio" name="need" id="need-other" value="other"><span data-i18n="f_other">Otra cosa</span></label>
+          </fieldset>
+          <div class="field">
+            <label for="f-budget" data-i18n="f_budget">Presupuesto aproximado</label>
+            <select id="f-budget" name="budget">
+              <option value="" data-i18n="f_b0">Todavía no sé</option>
+              <option value="1">USD 100 – 300</option>
+              <option value="2">USD 300 – 800</option>
+              <option value="3" data-i18n="f_b3">Más de USD 800</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-msg" data-i18n="f_msg">Contame sobre tu proyecto</label>
+            <textarea id="f-msg" name="message"></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit" data-i18n="f_send">Enviar consulta</button>
+          <p class="form-note" id="form-note" data-i18n="f_note">Vista previa: el envío se activa cuando publiquemos la web.</p>
+          <p class="form-ok" id="form-ok" hidden data-i18n="f_ok">¡Listo! Así se verá la confirmación cuando el formulario esté conectado.</p>
+        </form>
+
+        <div class="channels">
+          <div class="channel">
+            <div><small>Email</small><strong id="mail-text">victorinacarelli@gmail.com</strong></div>
+            <button type="button" class="copy" id="copy-mail" data-copy="victorinacarelli@gmail.com" data-i18n="copy">Copiar</button>
+          </div>
+          <a class="channel" href="https://wa.me/5491165683621" target="_blank" rel="noopener">
+            <div><small>WhatsApp</small><strong>+54 9 11 6568-3621</strong></div><span class="arrow">↗</span>
+          </a>
+          <a class="channel" href="https://www.instagram.com/victorinacarelli.ux" target="_blank" rel="noopener">
+            <div><small>Instagram</small><strong>@victorinacarelli.ux</strong></div><span class="arrow">↗</span>
+          </a>
+          <a class="channel" href="https://www.behance.net/victoricarelli" target="_blank" rel="noopener">
+            <div><small>Behance</small><strong>victoricarelli</strong></div><span class="arrow">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <footer>
+        <span>© 2026 Victorina Carelli</span>
+        <span data-i18n="foot">Diseñado con amor (y muchos post-its)</span>
+      </footer>
+    </div>
+  </section>
+</main>
+
+<script>
+(function(){
+  const sel = w => '<span class="sel"><i></i>'+w+'<i></i></span>';
+  const T = {
+    es:{
+      nav_portfolio:"Portfolio",nav_services:"Asesorías",nav_bio:"Sobre mí",nav_contact:"Contacto",cta_short:"Presupuesto",
+      hero_eyebrow:"UX/UI Designer · Asesorías · Diseño web",
+      hero_title:"Diseño webs y apps que tus clientes "+sel("entienden")+" a la primera.",
+      hero_lead:"Ordeno lo que tenés en la cabeza y lo convierto en una experiencia clara, linda y que vende.",
+      cta_quote:"Pedí tu presupuesto →",cta_work:"Ver proyectos",tag_writing:"UX writing",tag_ai:"Webs con IA",
+      ph_photo:"Tu foto recortada acá",ph_photo_hint:"pose divertida, fondo liso",ph_photo2:"Otra foto tuya",cursor_you:"Vos",
+      marquee:["UX research","UI design","Asesorías","Webs con IA","Prototipos","Tests de usabilidad"],
+      pains_eyebrow:"Diagnóstico rápido",pains_title:"¿Tu web o app "+sel("no")+" está funcionando?",
+      pain1:"La gente entra y se va",pain2:"Nadie completa el formulario",pain3:"Tu web no se ve como tu marca",pain4:"En el celu es un caos",pain5:"Tenés la idea pero no sabés por dónde empezar",pain6:"Te preguntan siempre lo mismo",
+      pains_foot_t:"Casi siempre es un problema de experiencia.",pains_foot:"Y tiene solución: entender a tus usuarios y diseñar a partir de eso.",
+      pf_eyebrow:"Portfolio",pf_title:"Proyectos seleccionados",sample:"Ejemplo",chip_ai:"Con IA",
+      p1_t:"App de turnos médicos",p1_d:"Rediseño del flujo de reserva para que pedir un turno lleve menos de un minuto.",p1_r:"Resultado: menos abandonos en el registro",
+      p2_t:"Tienda online de cerámica",p2_d:"Checkout más simple y fichas de producto que responden las dudas.",
+      p3_t:"Landing para una coach",p3_d:"Web hecha con IA en una semana, lista para recibir consultas.",
+      pf_all:"Ver todo en Behance ↗",
+      sv_eyebrow:"Mis servicios",sv_title:"Asesorías para que tu producto "+sel("funcione"),sample_services:"Textos de ejemplo",
+      s1_t:"Auditoría UX exprés",s1_for:"Para webs o apps que ya existen y no convierten.",s1_a:"Revisión de tu web o app",s1_b:"Informe con problemas priorizados",s1_c:"Videollamada de 45 minutos",
+      s2_t:"Asesoría 1:1",s2_for:"Para emprendedores y equipos que están diseñando algo nuevo.",s2_a:"Sesión en vivo sobre tu proyecto",s2_b:"Feedback sobre flujos y pantallas",s2_c:"Próximos pasos claros",
+      s3_t:"Tu web con IA",s3_for:"Para quien necesita una web linda y rápida, sin depender de un programador.",s3_a:"Estructura y textos pensados en UX",s3_b:"Diseño y desarrollo con IA",s3_c:"Publicada con tu dominio",
+      from:"desde",s_cta:"Quiero esta",
+      bio_eyebrow:"Mini bio",bio_title:"Hola, soy "+sel("Victo"),
+      bio_p1:"Soy diseñadora UX/UI. Me encanta escuchar a las personas, encontrar dónde se traban y diseñar soluciones simples que se sienten bien.",
+      bio_p2:"Trabajo con emprendedores, marcas y equipos que quieren que su web o app sea clara, linda y fácil de usar.",
+      sample_bio:"Bio de ejemplo, la cambiamos por la tuya",f_tools:"Herramientas",f_lang:"Idiomas",f_lang_v:"Español, inglés",f_where:"Desde",f_where_v:"Argentina, para todo el mundo",
+      ctx_copy:"Copiar mail",ctx_wa:"Escribirme por WhatsApp",ctx_be:"Ver Behance",ctx_ig:"Ver Instagram",
+      ct_eyebrow:"Contáctame / presupuestá",ct_title:"Trabajemos "+sel("juntos"),ct_lead:"Contame qué necesitás y te respondo en menos de 48 horas con una propuesta.",
+      f_name:"Tu nombre",f_email:"Tu email",f_need:"¿Qué necesitás?",f_other:"Otra cosa",f_budget:"Presupuesto aproximado",f_b0:"Todavía no sé",f_b3:"Más de USD 800",
+      f_msg:"Contame sobre tu proyecto",f_send:"Enviar consulta",f_note:"Vista previa: el envío se activa cuando publiquemos la web.",
+      f_ok:"¡Listo! Así se verá la confirmación cuando el formulario esté conectado.",f_err:"Completá tu nombre y un email válido.",
+      copy:"Copiar",copied:"¡Copiado!",foot:"Diseñado con amor (y muchos post-its)"
+    },
+    en:{
+      nav_portfolio:"Work",nav_services:"Services",nav_bio:"About",nav_contact:"Contact",cta_short:"Get a quote",
+      hero_eyebrow:"UX/UI Designer · Consulting · Web design",
+      hero_title:"I design websites and apps your customers "+sel("get")+" the first time.",
+      hero_lead:"I take the idea in your head and turn it into an experience that is clear, beautiful and sells.",
+      cta_quote:"Get a quote →",cta_work:"See my work",tag_writing:"UX writing",tag_ai:"AI-built websites",
+      ph_photo:"Your cut-out photo here",ph_photo_hint:"fun pose, plain background",ph_photo2:"Another photo of you",cursor_you:"You",
+      marquee:["UX research","UI design","Consulting","AI-built websites","Prototypes","Usability testing"],
+      pains_eyebrow:"Quick check",pains_title:"Is your website or app "+sel("not")+" working?",
+      pain1:"People land and leave",pain2:"Nobody finishes the form",pain3:"Your site doesn't look like your brand",pain4:"It's a mess on mobile",pain5:"You have the idea but don't know where to start",pain6:"Customers keep asking the same thing",
+      pains_foot_t:"It's almost always an experience problem.",pains_foot:"And it can be fixed: understand your users and design from there.",
+      pf_eyebrow:"Work",pf_title:"Selected projects",sample:"Sample",chip_ai:"AI-built",
+      p1_t:"Medical appointments app",p1_d:"Redesigned the booking flow so getting an appointment takes under a minute.",p1_r:"Result: fewer sign-up drop-offs",
+      p2_t:"Ceramics online store",p2_d:"A simpler checkout and product pages that answer every question.",
+      p3_t:"Landing page for a coach",p3_d:"AI-built in one week, ready to take inquiries.",
+      pf_all:"See everything on Behance ↗",
+      sv_eyebrow:"Services",sv_title:"Consulting to make your product "+sel("work"),sample_services:"Sample copy",
+      s1_t:"Express UX audit",s1_for:"For existing websites or apps that don't convert.",s1_a:"Review of your site or app",s1_b:"Report with prioritized issues",s1_c:"45-minute video call",
+      s2_t:"1:1 session",s2_for:"For founders and teams designing something new.",s2_a:"Live session on your project",s2_b:"Feedback on flows and screens",s2_c:"Clear next steps",
+      s3_t:"Your AI-built website",s3_for:"For anyone who needs a beautiful site fast, without a developer.",s3_a:"UX-driven structure and copy",s3_b:"Designed and built with AI",s3_c:"Published on your domain",
+      from:"from",s_cta:"I want this",
+      bio_eyebrow:"About",bio_title:"Hi, I'm "+sel("Victo"),
+      bio_p1:"I'm a UX/UI designer. I love listening to people, finding where they get stuck and designing simple solutions that feel good.",
+      bio_p2:"I work with founders, brands and teams who want their website or app to be clear, beautiful and easy to use.",
+      sample_bio:"Sample bio, we'll replace it with yours",f_tools:"Tools",f_lang:"Languages",f_lang_v:"Spanish, English",f_where:"Based in",f_where_v:"Argentina, working worldwide",
+      ctx_copy:"Copy email",ctx_wa:"Message me on WhatsApp",ctx_be:"See Behance",ctx_ig:"See Instagram",
+      ct_eyebrow:"Contact / get a quote",ct_title:"Let's work "+sel("together"),ct_lead:"Tell me what you need and I'll reply within 48 hours with a proposal.",
+      f_name:"Your name",f_email:"Your email",f_need:"What do you need?",f_other:"Something else",f_budget:"Approximate budget",f_b0:"Not sure yet",f_b3:"Over USD 800",
+      f_msg:"Tell me about your project",f_send:"Send inquiry",f_note:"Preview: sending turns on once the site is live.",
+      f_ok:"Done! This is how the confirmation will look once the form is connected.",f_err:"Please add your name and a valid email.",
+      copy:"Copy",copied:"Copied!",foot:"Designed with love (and lots of sticky notes)"
+    }
+  };
+  let lang = "es";
+  function renderMarquee(){
+    const items = T[lang].marquee;
+    const m = document.getElementById("marquee");
+    const html = items.concat(items).concat(items).concat(items).map(t=>"<span>"+t+"</span>").join("");
+    m.innerHTML = html;
+  }
+  function setLang(l){
+    lang = l;
+    document.documentElement.lang = l;
+    document.querySelectorAll("[data-i18n]").forEach(el=>{const v=T[l][el.dataset.i18n]; if(typeof v==="string") el.textContent=v;});
+    document.querySelectorAll("[data-i18n-html]").forEach(el=>{const v=T[l][el.dataset.i18nHtml]; if(v) el.innerHTML=v;});
+    document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed", String(b.dataset.lang===l)));
+    renderMarquee();
+    try{localStorage.setItem("victo-lang", l)}catch(e){}
+  }
+  document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
+  let saved=null; try{saved=localStorage.getItem("victo-lang")}catch(e){}
+  setLang(saved==="en"?"en":"es");
+
+  function copyFrom(btn, labelKey){
+    const text = btn.dataset.copy;
+    const done = ()=>{ const span = labelKey ? btn.querySelector("span") || btn : btn; const prev = span.textContent; span.textContent = T[lang].copied; setTimeout(()=>{span.textContent = prev},1600); };
+    const fallback = ()=>{ const el=document.getElementById("mail-text"); const r=document.createRange(); r.selectNodeContents(el); const s=getSelection(); s.removeAllRanges(); s.addRange(r); };
+    try{ navigator.clipboard.writeText(text).then(done, fallback); }catch(e){ fallback(); }
+  }
+  document.getElementById("copy-mail").addEventListener("click", e=>copyFrom(e.currentTarget));
+  document.getElementById("ctx-copy").addEventListener("click", e=>copyFrom(e.currentTarget, true));
+
+  const form = document.getElementById("quote-form");
+  form.addEventListener("submit", e=>{
+    e.preventDefault();
+    const name = document.getElementById("f-name"), email = document.getElementById("f-email");
+    const ok = document.getElementById("form-ok"), note = document.getElementById("form-note");
+    const valid = name.value.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+    if(!valid){ note.textContent = T[lang].f_err; note.style.color = "#D2386C"; ok.hidden = true; (name.value.trim()?email:name).focus(); return; }
+    note.textContent = T[lang].f_note; note.style.color = ""; ok.hidden = false;
+  });
+})();
+</script>
+</body>
+</html>
