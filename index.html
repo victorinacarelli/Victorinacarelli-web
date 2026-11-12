@@ -12,7 +12,8 @@
 <meta property="og:title" content="Victorina Carelli · Diseñadora UX/UI">
 <meta property="og:description" content="Diseño webs y apps que tus clientes entienden a la primera. Portfolio, asesorías y presupuestos.">
 <meta property="og:locale" content="es_AR">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://victorinacarelli.netlify.app/assets/img/victo-hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -58,12 +59,11 @@
         </div>
       </div>
       <div style="min-width:0;display:grid;gap:10px">
-        <div class="photo" role="img" aria-label="Espacio para foto de Victo">
-          <div class="ph">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><circle cx="9" cy="10" r="2"/><path d="M21 16l-5-5-8 8"/></svg>
-            <strong data-i18n="ph_photo">Tu foto recortada acá</strong>
-            <span class="mono" data-i18n="ph_photo_hint">pose divertida, fondo liso</span>
-          </div>
+        <div class="photo photo-real">
+          <picture>
+            <source srcset="/assets/img/victo-hero.webp" type="image/webp">
+            <img src="/assets/img/victo-hero.jpg" alt="Victorina Carelli sonriendo en las Salinas Grandes" width="800" height="1000" fetchpriority="high">
+          </picture>
           <div class="cursor c1" aria-hidden="true">
             <svg viewBox="0 0 20 20"><path d="M2 2l6 16 2.4-6.6L17 9z" stroke="#fff" stroke-width="1.2"/></svg>
             <b>Victo</b>
