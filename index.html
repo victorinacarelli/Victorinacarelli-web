@@ -16,316 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<style>
-/* Layout: mobile-first single column; the site is a friendly design canvas —
-   selection handles, multiplayer cursors, redlines and pill tags as Victo's own UX vernacular. */
-:root{
-  --bg:#FAF7F5;
-  --surface:#FFFFFF;
-  --ink:#1D1630;
-  --muted:#5E5672;
-  --line:#E6DFEA;
-  --select:#2F6BFF;
-  --lila:#CDB8F6;
-  --lima:#CBF25C;
-  --rosa:#FFB8DA;
-  --amarillo:#FFE16B;
-  --on-pastel:#1D1630;
-  --grid:rgba(120,90,180,.10);
-  --font-display:"Bricolage Grotesque", "Arial Rounded MT Bold", system-ui, sans-serif;
-  --font-body:"Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-  --r-pill:999px;
-  --r-card:22px;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#16121F;--surface:#201A2D;--ink:#F4EFFB;--muted:#B5ABC8;--line:#342B45;
-    --select:#6B95FF;--grid:rgba(200,180,255,.07);color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#16121F;--surface:#201A2D;--ink:#F4EFFB;--muted:#B5ABC8;--line:#342B45;
-  --select:#6B95FF;--grid:rgba(200,180,255,.07);color-scheme:dark;
-}
-
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
-body{
-  background:var(--bg);color:var(--ink);
-  font-family:var(--font-body);font-size:16px;line-height:1.55;
-  -webkit-font-smoothing:antialiased;
-}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
-a{color:inherit}
-:focus-visible{outline:3px solid var(--select);outline-offset:3px;border-radius:6px}
-.wrap{
-  width:100%;max-width:1120px;margin-inline:auto;
-  padding-left:max(16px, env(safe-area-inset-left,0px));
-  padding-right:max(16px, env(safe-area-inset-right,0px));
-}
-h1,h2,h3{font-family:var(--font-display);line-height:1.02;letter-spacing:-.02em;text-wrap:balance;margin:0}
-p{margin:0}
-.mono{font-family:var(--font-mono);font-size:12px;letter-spacing:.02em}
-.eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-.sample{
-  display:inline-block;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;
-  border:1px dashed currentColor;border-radius:var(--r-pill);padding:2px 8px;opacity:.75
-}
-
-/* ---------- Selection highlight (Figma-style handles) ---------- */
-.sel{
-  position:relative;display:inline-block;padding:0 .12em;
-  background:color-mix(in srgb, var(--select) 16%, transparent);
-  box-shadow:inset 0 0 0 1.5px var(--select);
-}
-.sel::before,.sel::after{
-  content:"";position:absolute;width:2px;background:var(--select);
-}
-.sel::before{left:-1px;top:-.18em;bottom:0}
-.sel::after{right:-1px;top:0;bottom:-.18em}
-.sel i{position:absolute;width:.22em;height:.22em;min-width:8px;min-height:8px;border-radius:50%;background:var(--select)}
-.sel i:first-child{left:-1px;top:-.18em;transform:translate(-40%,-60%)}
-.sel i:last-child{right:-1px;bottom:-.18em;transform:translate(40%,60%)}
-
-/* ---------- Header ---------- */
-.top{
-  position:sticky;top:env(safe-area-inset-top,0px);z-index:20;
-  background:color-mix(in srgb, var(--bg) 88%, transparent);
-  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--line);
-}
-.top .wrap{display:flex;align-items:center;gap:10px;padding-block:10px}
-.logo{font-family:var(--font-display);font-weight:800;font-size:20px;text-decoration:none;letter-spacing:-.02em;margin-right:auto;white-space:nowrap}
-.logo span{color:var(--select)}
-.nav{display:none}
-.lang{
-  display:flex;border:1.5px solid var(--ink);border-radius:var(--r-pill);overflow:hidden;flex:none
-}
-.lang button{
-  font:600 12px/1 var(--font-mono);padding:7px 9px;border:0;background:transparent;color:var(--ink);cursor:pointer
-}
-.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  font:600 15px/1 var(--font-body);text-decoration:none;cursor:pointer;
-  border-radius:var(--r-pill);padding:14px 20px;border:1.5px solid var(--ink);
-  transition:transform .15s ease, box-shadow .15s ease;
-}
-.btn-primary{background:var(--ink);color:var(--bg)}
-.btn-ghost{background:transparent;color:var(--ink)}
-.btn:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--select)}
-.btn-sm{padding:9px 14px;font-size:13px}
-@media (prefers-reduced-motion: reduce){.btn{transition:none}.btn:hover{transform:none}}
-
-/* ---------- Hero ---------- */
-.hero{
-  background-image:
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size:32px 32px;
-  border-bottom:1px solid var(--line);
-}
-.hero .wrap{padding-block:36px 44px;display:grid;gap:28px}
-.hero h1{font-size:clamp(40px, 11vw, 84px);font-weight:800}
-.hero .lead{font-size:18px;color:var(--muted);max-width:34ch}
-.hero .ctas{display:flex;flex-wrap:wrap;gap:10px}
-.photo{
-  position:relative;aspect-ratio:4/5;max-width:100%;width:100%;
-  border-radius:var(--r-card);background:var(--lila);color:var(--on-pastel);
-  display:grid;place-items:center;text-align:center;overflow:visible;
-}
-.photo .ph{
-  display:grid;gap:8px;justify-items:center;padding:24px;
-  border:2px dashed color-mix(in srgb, var(--on-pastel) 40%, transparent);border-radius:16px;margin:18px;align-self:stretch;justify-self:stretch;align-content:center
-}
-.photo svg{width:44px;height:44px}
-.cursor{
-  position:absolute;display:flex;align-items:flex-start;gap:2px;pointer-events:none;
-  animation:float 6s ease-in-out infinite;
-}
-.cursor svg{width:20px;height:20px;flex:none}
-.cursor b{
-  font:600 12px/1 var(--font-body);color:#fff;padding:6px 9px;border-radius:4px 10px 10px 10px;margin-top:14px;white-space:nowrap
-}
-.cursor.c1{right:12px;top:16px}
-.cursor.c1 b{background:var(--select)}
-.cursor.c1 svg path{fill:var(--select)}
-.cursor.c2{left:-4px;bottom:22%;animation-delay:-3s}
-.cursor.c2 b{background:#E2459B}
-.cursor.c2 svg path{fill:#E2459B}
-@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(-8px,6px)}}
-@media (prefers-reduced-motion: reduce){.cursor{animation:none}}
-.tags{display:flex;flex-wrap:wrap;gap:8px}
-.tag{
-  font:500 13px/1 var(--font-body);padding:8px 12px;border-radius:var(--r-pill);
-  border:1.5px solid var(--ink);background:var(--surface)
-}
-.redline{display:flex;align-items:center;gap:8px;color:#E2459B}
-.redline::before,.redline::after{content:"";height:1px;flex:1;background:currentColor}
-
-/* ---------- Marquee ---------- */
-.marquee{background:var(--lima);color:var(--on-pastel);overflow:hidden;border-bottom:1.5px solid var(--on-pastel);border-top:1.5px solid var(--on-pastel)}
-.marquee .track{display:flex;width:max-content;animation:slide 28s linear infinite}
-.marquee span{font:600 15px/1 var(--font-body);padding:12px 18px;white-space:nowrap;display:flex;align-items:center;gap:18px}
-.marquee span::after{content:"✦";font-size:13px}
-@keyframes slide{to{transform:translateX(-50%)}}
-@media (prefers-reduced-motion: reduce){.marquee .track{animation:none}}
-
-/* ---------- Sections ---------- */
-section{scroll-margin-top:70px}
-.sec{padding-block:64px}
-.sec-head{display:grid;gap:12px;margin-bottom:28px}
-.sec-head h2{font-size:clamp(34px, 9vw, 60px);font-weight:800}
-
-/* Pains: scattered pills */
-.pains{
-  position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-card);
-  padding:28px 16px;display:flex;flex-wrap:wrap;justify-content:center;gap:12px 8px;
-}
-.pain{
-  font:600 15px/1.2 var(--font-body);padding:13px 18px;border-radius:var(--r-pill);color:var(--on-pastel);
-  max-width:100%;text-align:center
-}
-.pain:nth-child(1){background:var(--lila);transform:rotate(-4deg)}
-.pain:nth-child(2){background:var(--amarillo);transform:rotate(3deg)}
-.pain:nth-child(3){background:var(--rosa);transform:rotate(-2deg)}
-.pain:nth-child(4){background:var(--lima);transform:rotate(5deg)}
-.pain:nth-child(5){background:var(--lila);transform:rotate(-5deg)}
-.pain:nth-child(6){background:var(--rosa);transform:rotate(2deg)}
-.pains-foot{margin-top:22px;font-size:18px;max-width:46ch}
-.pains-foot strong{font-family:var(--font-display);font-size:22px;display:block;margin-bottom:4px}
-
-/* Portfolio cards as files/windows */
-.grid{display:grid;gap:18px}
-.project{
-  background:var(--surface);border:1.5px solid var(--ink);border-radius:var(--r-card);overflow:hidden;
-  display:flex;flex-direction:column;text-decoration:none;transition:transform .2s ease, box-shadow .2s ease
-}
-.project:hover{transform:translate(-3px,-3px);box-shadow:5px 5px 0 var(--ink)}
-@media (prefers-reduced-motion: reduce){.project{transition:none}.project:hover{transform:none}}
-.bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1.5px solid var(--ink)}
-.bar i{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--ink)}
-.bar .mono{margin-left:auto;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
-.thumb{aspect-ratio:16/11;max-width:100%;padding:18px;display:grid;place-items:center}
-.wf{width:min(62%,180px);aspect-ratio:9/16;max-width:100%;background:var(--surface);border:1.5px solid var(--on-pastel);border-radius:16px;padding:10px 8px;display:grid;gap:6px;align-content:start;box-shadow:6px 6px 0 color-mix(in srgb, var(--on-pastel) 85%, transparent)}
-.wf b{display:block;height:8px;border-radius:4px;background:var(--line)}
-.wf b.h{height:14px;width:70%;background:var(--ink)}
-.wf b.img{height:56px;background:color-mix(in srgb, var(--select) 22%, var(--line))}
-.wf b.s{width:55%}
-.wf b.cta{height:18px;border-radius:999px;background:var(--select);margin-top:6px}
-.wide .wf{aspect-ratio:16/10;width:min(88%,320px);grid-template-columns:1fr 1fr}
-.wide .wf b.h,.wide .wf b.cta{grid-column:1/-1}
-.wide .wf b.img{height:44px}
-.p-body{padding:16px 18px 20px;display:grid;gap:8px;border-top:1.5px solid var(--ink)}
-.p-body h3{font-size:24px;font-weight:700}
-.p-body p{color:var(--muted);font-size:15px}
-.p-meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
-.chip{font:500 12px/1 var(--font-mono);padding:6px 9px;border-radius:var(--r-pill);background:var(--bg);border:1px solid var(--line)}
-.result{font-weight:600;color:var(--ink)!important}
-.see-all{margin-top:22px}
-
-/* Services */
-.service{
-  border-radius:var(--r-card);padding:22px 20px;color:var(--on-pastel);display:grid;gap:14px;align-content:start;
-  border:1.5px solid var(--on-pastel)
-}
-.service.s1{background:var(--lila)}
-.service.s2{background:var(--lima)}
-.service.s3{background:var(--amarillo)}
-.service h3{font-size:28px;font-weight:800}
-.service .for{font-weight:600}
-.service ul{margin:0;padding:0;list-style:none;display:grid;gap:6px}
-.service li{display:flex;gap:8px;font-size:15px}
-.service li::before{content:"";flex:none;width:16px;height:16px;margin-top:3px;border:1.5px solid var(--on-pastel);border-radius:4px;background:
-  linear-gradient(45deg, transparent 45%, var(--on-pastel) 45% 58%, transparent 58%) }
-.service .price{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;padding-top:12px;border-top:1.5px dashed color-mix(in srgb, var(--on-pastel) 45%, transparent)}
-.service .price strong{font-family:var(--font-display);font-size:22px}
-.service .btn{border-color:var(--on-pastel);background:var(--on-pastel);color:#fff}
-.service .btn:hover{box-shadow:3px 3px 0 #fff}
-
-/* Bio */
-.bio{display:grid;gap:28px}
-.bio .photo{background:var(--rosa);aspect-ratio:1/1}
-.bio-text{display:grid;gap:16px;max-width:60ch}
-.bio-text h2{font-size:clamp(34px, 9vw, 60px);font-weight:800}
-.bio-text p{font-size:17px}
-.facts{display:grid;gap:10px;margin-top:6px}
-.fact{display:flex;gap:12px;align-items:baseline;border-top:1px solid var(--line);padding-top:10px}
-.fact .mono{color:var(--muted);flex:none;width:96px}
-.ctx{
-  background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:6px;
-  box-shadow:0 10px 30px rgba(29,22,48,.14);width:min(100%,260px);display:grid;
-}
-.ctx a,.ctx button{
-  font:500 14px/1 var(--font-body);color:var(--ink);background:none;border:0;text-align:left;text-decoration:none;
-  padding:10px 12px;border-radius:8px;cursor:pointer;display:flex;justify-content:space-between;gap:12px
-}
-.ctx a:hover,.ctx button:hover{background:var(--select);color:#fff}
-.ctx hr{border:0;border-top:1px solid var(--line);margin:4px 6px}
-.ctx kbd{font:400 11px/1 var(--font-mono);opacity:.6}
-
-/* Contact */
-.contact{background:var(--ink);color:var(--bg);border-radius:28px 28px 0 0}
-.contact .sec{padding-block:64px 40px}
-.contact h2{font-size:clamp(44px, 13vw, 96px);font-weight:800;line-height:.98}
-.contact .sel{background:color-mix(in srgb, var(--select) 30%, transparent)}
-.contact .lead{color:color-mix(in srgb, var(--bg) 75%, transparent);font-size:18px;max-width:42ch;margin-top:16px}
-.c-grid{display:grid;gap:28px;margin-top:36px}
-form{display:grid;gap:14px;background:var(--surface);color:var(--ink);border-radius:var(--r-card);padding:20px}
-.field{display:grid;gap:6px}
-label{font-weight:600;font-size:14px}
-input,select,textarea{
-  font:400 16px/1.4 var(--font-body);color:var(--ink);background:var(--bg);
-  border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;width:100%;min-width:0
-}
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--select);box-shadow:0 0 0 3px color-mix(in srgb, var(--select) 25%, transparent)}
-textarea{min-height:110px;resize:vertical}
-.chips-input{display:flex;flex-wrap:wrap;gap:8px;border:0;padding:0;margin:0}
-.chips-input legend{font-weight:600;font-size:14px;margin-bottom:6px;padding:0}
-.chips-input label{font-weight:500;cursor:pointer}
-.chips-input input{position:absolute;opacity:0;width:1px;height:1px}
-.chips-input span{display:inline-block;padding:9px 13px;border-radius:var(--r-pill);border:1.5px solid var(--line);background:var(--bg);font-size:14px}
-.chips-input input:checked + span{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.chips-input input:focus-visible + span{outline:3px solid var(--select);outline-offset:2px}
-form .btn{width:100%;margin-top:4px}
-.form-note{font-size:13px;color:var(--muted)}
-.form-ok{background:var(--lima);color:var(--on-pastel);border-radius:12px;padding:12px 14px;font-weight:600}
-.channels{display:grid;gap:10px;align-content:start}
-.channel{
-  display:flex;align-items:center;justify-content:space-between;gap:12px;
-  border:1.5px solid color-mix(in srgb, var(--bg) 30%, transparent);border-radius:16px;padding:14px 16px;text-decoration:none;color:var(--bg)
-}
-.channel:hover{border-color:var(--bg)}
-.channel div{min-width:0}
-.channel small{display:block;font:400 12px/1.3 var(--font-mono);opacity:.7;text-transform:uppercase;letter-spacing:.06em}
-.channel strong{display:block;font-weight:600;overflow-wrap:anywhere}
-.channel .arrow{font-size:20px;flex:none}
-.copy{font:600 12px/1 var(--font-mono);border:1.5px solid var(--bg);color:var(--bg);background:transparent;padding:8px 10px;border-radius:var(--r-pill);cursor:pointer;flex:none}
-footer{padding-block:28px;border-top:1px solid color-mix(in srgb, var(--bg) 18%, transparent);margin-top:48px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:13px;opacity:.8}
-
-/* ---------- Larger screens ---------- */
-@media (min-width:720px){
-  .nav{display:flex;gap:4px;border:1.5px solid var(--ink);border-radius:var(--r-pill);padding:4px;margin-right:auto}
-  .nav a{font:500 14px/1 var(--font-body);text-decoration:none;padding:8px 12px;border-radius:var(--r-pill)}
-  .nav a:hover{background:var(--ink);color:var(--bg)}
-  .logo{margin-right:0}
-  .top .wrap{gap:16px}
-  .hero .wrap{grid-template-columns:1.25fr .85fr;align-items:center;padding-block:64px 72px}
-  .grid.three{grid-template-columns:repeat(2,1fr)}
-  .grid.three .wide{grid-column:1/-1}
-  .bio{grid-template-columns:.8fr 1.2fr;align-items:center}
-  .c-grid{grid-template-columns:1.2fr .8fr}
-  .pains{padding:44px 32px;gap:16px 12px}
-  .sec{padding-block:96px}
-}
-@media (min-width:1024px){
-  .grid.services{grid-template-columns:repeat(3,1fr)}
-  .grid.three{grid-template-columns:1.4fr 1fr}
-  .grid.three .wide{grid-column:auto;grid-row:span 2}
-}
-</style>
+<link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
 
@@ -334,7 +25,7 @@ footer{padding-block:28px;border-top:1px solid color-mix(in srgb, var(--bg) 18%,
     <a class="logo" href="#inicio">victo<span>.</span>ux</a>
     <nav class="nav" aria-label="Secciones">
       <a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a>
-      <a href="#servicios" data-i18n="nav_services">Asesorías</a>
+      <a href="#servicios" data-i18n="nav_services">Servicios</a>
       <a href="#bio" data-i18n="nav_bio">Sobre mí</a>
       <a href="#contacto" data-i18n="nav_contact">Contacto</a>
     </nav>
@@ -462,42 +153,37 @@ footer{padding-block:28px;border-top:1px solid color-mix(in srgb, var(--bg) 18%,
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow" data-i18n="sv_eyebrow">Mis servicios</p>
-        <h2 id="sv-title" data-i18n-html="sv_title">Asesorías para que tu producto <span class="sel"><i></i>funcione<i></i></span></h2>
+        <h2 id="sv-title" data-i18n-html="sv_title">¿Cómo te puedo <span class="sel"><i></i>ayudar<i></i></span>?</h2>
         <p><span class="sample" data-i18n="sample_services">Textos de ejemplo</span></p>
       </div>
-      <div class="grid services">
-        <article class="service s1">
-          <h3 data-i18n="s1_t">Auditoría UX exprés</h3>
-          <p class="for" data-i18n="s1_for">Para webs o apps que ya existen y no convierten.</p>
-          <ul>
-            <li data-i18n="s1_a">Revisión de tu web o app</li>
-            <li data-i18n="s1_b">Informe con problemas priorizados</li>
-            <li data-i18n="s1_c">Videollamada de 45 minutos</li>
-          </ul>
-          <div class="price"><span data-i18n="from">desde</span><strong>USD —</strong></div>
-          <a class="btn" href="#contacto" data-i18n="s_cta">Quiero esta</a>
+      <div class="svc-groups">
+        <article class="group g-web">
+          <span class="group-label" data-i18n="g_web_l">Diseño web</span>
+          <h3 data-i18n="g_web_t">Tu web, lista para vender</h3>
+          <p data-i18n="g_web_d">Diseñada con criterio UX y construida con IA, sin depender de un programador.</p>
+          <div class="items">
+            <a class="item" href="/servicios/diseno-web.html#marca-personal"><strong data-i18n="w1_t">Web de marca personal</strong><span data-i18n="w1_s">Tu portfolio y tus servicios en una web propia.</span><i class="go" aria-hidden="true"><b>→</b></i></a>
+            <a class="item" href="/servicios/diseno-web.html#landing"><strong data-i18n="w2_t">Landing de conversión</strong><span data-i18n="w2_s">Una página con un solo objetivo: que te contacten o compren.</span><i class="go" aria-hidden="true"><b>→</b></i></a>
+          </div>
         </article>
-        <article class="service s2">
-          <h3 data-i18n="s2_t">Asesoría 1:1</h3>
-          <p class="for" data-i18n="s2_for">Para emprendedores y equipos que están diseñando algo nuevo.</p>
-          <ul>
-            <li data-i18n="s2_a">Sesión en vivo sobre tu proyecto</li>
-            <li data-i18n="s2_b">Feedback sobre flujos y pantallas</li>
-            <li data-i18n="s2_c">Próximos pasos claros</li>
-          </ul>
-          <div class="price"><span data-i18n="from">desde</span><strong>USD —</strong></div>
-          <a class="btn" href="#contacto" data-i18n="s_cta">Quiero esta</a>
+        <article class="group g-1on1">
+          <span class="group-label" data-i18n="g_1on1_l">Asesorías 1:1</span>
+          <h3 data-i18n="g_1on1_t">Una sesión, mucha claridad</h3>
+          <p data-i18n="g_1on1_d">Videollamadas personalizadas con recomendaciones que podés aplicar al día siguiente.</p>
+          <div class="items">
+            <a class="item" href="/servicios/asesorias.html#producto"><strong data-i18n="a1_t">Asesoría de producto digital</strong><span data-i18n="a1_s">Para marcas y emprendedores con una web o app.</span><i class="go" aria-hidden="true"><b>→</b></i></a>
+            <a class="item" href="/servicios/asesorias.html#disenadores"><strong data-i18n="a2_t">Asesoría para diseñadores</strong><span data-i18n="a2_s">Tu LinkedIn, CV y portfolio, listos para conseguir entrevistas.</span><i class="go" aria-hidden="true"><b>→</b></i></a>
+          </div>
         </article>
-        <article class="service s3">
-          <h3 data-i18n="s3_t">Tu web con IA</h3>
-          <p class="for" data-i18n="s3_for">Para quien necesita una web linda y rápida, sin depender de un programador.</p>
-          <ul>
-            <li data-i18n="s3_a">Estructura y textos pensados en UX</li>
-            <li data-i18n="s3_b">Diseño y desarrollo con IA</li>
-            <li data-i18n="s3_c">Publicada con tu dominio</li>
-          </ul>
-          <div class="price"><span data-i18n="from">desde</span><strong>USD —</strong></div>
-          <a class="btn" href="#contacto" data-i18n="s_cta">Quiero esta</a>
+        <article class="group g-corp">
+          <span class="group-label" data-i18n="g_corp_l">Para empresas</span>
+          <h3 data-i18n="g_corp_t">Asesorías corporativas</h3>
+          <p data-i18n="g_corp_d">UX para equipos que quieren productos más fáciles de usar.</p>
+          <div class="items">
+            <a class="item" href="/servicios/corporativas.html#auditoria"><strong data-i18n="c1_t">Auditoría de producto</strong><span data-i18n="c1_s">Una mirada experta sobre tu web o app.</span><i class="go" aria-hidden="true"><b>→</b></i></a>
+            <a class="item" href="/servicios/corporativas.html#workshops"><strong data-i18n="c2_t">Workshops para equipos</strong><span data-i18n="c2_s">Capacitación práctica, online o presencial.</span><i class="go" aria-hidden="true"><b>→</b></i></a>
+            <a class="item" href="/servicios/corporativas.html#acompanamiento"><strong data-i18n="c3_t">Acompañamiento UX</strong><span data-i18n="c3_s">UX continuo sin sumar a alguien full time.</span><i class="go" aria-hidden="true"><b>→</b></i></a>
+          </div>
         </article>
       </div>
     </div>
@@ -557,10 +243,12 @@ footer{padding-block:28px;border-top:1px solid color-mix(in srgb, var(--bg) 18%,
           </div>
           <fieldset class="chips-input">
             <legend data-i18n="f_need">¿Qué necesitás?</legend>
-            <label><input type="radio" name="need" id="need-audit" value="audit" checked><span data-i18n="s1_t">Auditoría UX exprés</span></label>
-            <label><input type="radio" name="need" id="need-1on1" value="1on1"><span data-i18n="s2_t">Asesoría 1:1</span></label>
-            <label><input type="radio" name="need" id="need-web" value="web"><span data-i18n="s3_t">Tu web con IA</span></label>
-            <label><input type="radio" name="need" id="need-other" value="other"><span data-i18n="f_other">Otra cosa</span></label>
+            <label><input type="radio" name="need" id="need-w1" value="Web de marca personal" checked><span data-i18n="w1_t">Web de marca personal</span></label>
+            <label><input type="radio" name="need" id="need-w2" value="Landing de conversión"><span data-i18n="w2_t">Landing de conversión</span></label>
+            <label><input type="radio" name="need" id="need-a1" value="Asesoría de producto digital"><span data-i18n="a1_t">Asesoría de producto digital</span></label>
+            <label><input type="radio" name="need" id="need-a2" value="Asesoría para diseñadores"><span data-i18n="a2_t">Asesoría para diseñadores</span></label>
+            <label><input type="radio" name="need" id="need-corp" value="Asesoría corporativa"><span data-i18n="f_corp">Asesoría corporativa</span></label>
+            <label><input type="radio" name="need" id="need-other" value="Otra cosa"><span data-i18n="f_other">Otra cosa</span></label>
           </fieldset>
           <div class="field">
             <label for="f-budget" data-i18n="f_budget">Presupuesto aproximado</label>
@@ -610,7 +298,7 @@ footer{padding-block:28px;border-top:1px solid color-mix(in srgb, var(--bg) 18%,
   const sel = w => '<span class="sel"><i></i>'+w+'<i></i></span>';
   const T = {
     es:{
-      nav_portfolio:"Portfolio",nav_services:"Asesorías",nav_bio:"Sobre mí",nav_contact:"Contacto",cta_short:"Presupuesto",
+      nav_portfolio:"Portfolio",nav_services:"Servicios",nav_bio:"Sobre mí",nav_contact:"Contacto",cta_short:"Presupuesto",
       hero_eyebrow:"UX/UI Designer · Asesorías · Diseño web",
       hero_title:"Diseño webs y apps que tus clientes "+sel("entienden")+" a la primera.",
       hero_lead:"Ordeno lo que tenés en la cabeza y lo convierto en una experiencia clara, linda y que vende.",
@@ -625,11 +313,14 @@ footer{padding-block:28px;border-top:1px solid color-mix(in srgb, var(--bg) 18%,
       p2_t:"Tienda online de cerámica",p2_d:"Checkout más simple y fichas de producto que responden las dudas.",
       p3_t:"Landing para una coach",p3_d:"Web hecha con IA en una semana, lista para recibir consultas.",
       pf_all:"Ver todo en Behance ↗",
-      sv_eyebrow:"Mis servicios",sv_title:"Asesorías para que tu producto "+sel("funcione"),sample_services:"Textos de ejemplo",
-      s1_t:"Auditoría UX exprés",s1_for:"Para webs o apps que ya existen y no convierten.",s1_a:"Revisión de tu web o app",s1_b:"Informe con problemas priorizados",s1_c:"Videollamada de 45 minutos",
-      s2_t:"Asesoría 1:1",s2_for:"Para emprendedores y equipos que están diseñando algo nuevo.",s2_a:"Sesión en vivo sobre tu proyecto",s2_b:"Feedback sobre flujos y pantallas",s2_c:"Próximos pasos claros",
-      s3_t:"Tu web con IA",s3_for:"Para quien necesita una web linda y rápida, sin depender de un programador.",s3_a:"Estructura y textos pensados en UX",s3_b:"Diseño y desarrollo con IA",s3_c:"Publicada con tu dominio",
-      from:"desde",s_cta:"Quiero esta",
+      sv_eyebrow:"Mis servicios",sv_title:"¿Cómo te puedo "+sel("ayudar")+"?",sample_services:"Textos de ejemplo",
+      g_web_l:"Diseño web",g_web_t:"Tu web, lista para vender",g_web_d:"Diseñada con criterio UX y construida con IA, sin depender de un programador.",
+      w1_t:"Web de marca personal",w1_s:"Tu portfolio y tus servicios en una web propia.",w2_t:"Landing de conversión",w2_s:"Una página con un solo objetivo: que te contacten o compren.",
+      g_1on1_l:"Asesorías 1:1",g_1on1_t:"Una sesión, mucha claridad",g_1on1_d:"Videollamadas personalizadas con recomendaciones que podés aplicar al día siguiente.",
+      a1_t:"Asesoría de producto digital",a1_s:"Para marcas y emprendedores con una web o app.",a2_t:"Asesoría para diseñadores",a2_s:"Tu LinkedIn, CV y portfolio, listos para conseguir entrevistas.",
+      g_corp_l:"Para empresas",g_corp_t:"Asesorías corporativas",g_corp_d:"UX para equipos que quieren productos más fáciles de usar.",
+      c1_t:"Auditoría de producto",c1_s:"Una mirada experta sobre tu web o app.",c2_t:"Workshops para equipos",c2_s:"Capacitación práctica, online o presencial.",c3_t:"Acompañamiento UX",c3_s:"UX continuo sin sumar a alguien full time.",
+      f_corp:"Asesoría corporativa",
       bio_eyebrow:"Mini bio",bio_title:"Hola, soy "+sel("Victo"),
       bio_p1:"Soy diseñadora UX/UI. Me encanta escuchar a las personas, encontrar dónde se traban y diseñar soluciones simples que se sienten bien.",
       bio_p2:"Trabajo con emprendedores, marcas y equipos que quieren que su web o app sea clara, linda y fácil de usar.",
@@ -657,11 +348,14 @@ footer{padding-block:28px;border-top:1px solid color-mix(in srgb, var(--bg) 18%,
       p2_t:"Ceramics online store",p2_d:"A simpler checkout and product pages that answer every question.",
       p3_t:"Landing page for a coach",p3_d:"AI-built in one week, ready to take inquiries.",
       pf_all:"See everything on Behance ↗",
-      sv_eyebrow:"Services",sv_title:"Consulting to make your product "+sel("work"),sample_services:"Sample copy",
-      s1_t:"Express UX audit",s1_for:"For existing websites or apps that don't convert.",s1_a:"Review of your site or app",s1_b:"Report with prioritized issues",s1_c:"45-minute video call",
-      s2_t:"1:1 session",s2_for:"For founders and teams designing something new.",s2_a:"Live session on your project",s2_b:"Feedback on flows and screens",s2_c:"Clear next steps",
-      s3_t:"Your AI-built website",s3_for:"For anyone who needs a beautiful site fast, without a developer.",s3_a:"UX-driven structure and copy",s3_b:"Designed and built with AI",s3_c:"Published on your domain",
-      from:"from",s_cta:"I want this",
+      sv_eyebrow:"Services",sv_title:"How can I "+sel("help")+"?",sample_services:"Sample copy",
+      g_web_l:"Web design",g_web_t:"A website ready to sell",g_web_d:"Designed with UX thinking and built with AI, no developer needed.",
+      w1_t:"Personal brand website",w1_s:"Your portfolio and services on a site of your own.",w2_t:"Conversion landing page",w2_s:"One page, one goal: get people to contact you or buy.",
+      g_1on1_l:"1:1 sessions",g_1on1_t:"One session, lots of clarity",g_1on1_d:"Personal video calls with advice you can apply the next day.",
+      a1_t:"Digital product session",a1_s:"For brands and founders with a website or app.",a2_t:"Session for designers",a2_s:"Your LinkedIn, CV and portfolio, ready to land interviews.",
+      g_corp_l:"For companies",g_corp_t:"Corporate consulting",g_corp_d:"UX for teams who want products that are easier to use.",
+      c1_t:"Product audit",c1_s:"An expert look at your website or app.",c2_t:"Team workshops",c2_s:"Hands-on training, online or on site.",c3_t:"Ongoing UX support",c3_s:"Continuous UX without a full-time hire.",
+      f_corp:"Corporate consulting",
       bio_eyebrow:"About",bio_title:"Hi, I'm "+sel("Victo"),
       bio_p1:"I'm a UX/UI designer. I love listening to people, finding where they get stuck and designing simple solutions that feel good.",
       bio_p2:"I work with founders, brands and teams who want their website or app to be clear, beautiful and easy to use.",
@@ -703,6 +397,7 @@ footer{padding-block:28px;border-top:1px solid color-mix(in srgb, var(--bg) 18%,
   document.getElementById("copy-mail").addEventListener("click", e=>copyFrom(e.currentTarget));
   document.getElementById("ctx-copy").addEventListener("click", e=>copyFrom(e.currentTarget, true));
 
+  try{ const need = localStorage.getItem("victo-need"); if(need){ const r = document.getElementById("need-"+need); if(r) r.checked = true; localStorage.removeItem("victo-need"); } }catch(e){}
   const form = document.getElementById("quote-form");
   form.addEventListener("submit", e=>{
     e.preventDefault();
