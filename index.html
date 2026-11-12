@@ -536,7 +536,9 @@ footer{padding-block:28px;border-top:1px solid color-mix(in srgb, var(--bg) 18%,
       <p class="lead" data-i18n="ct_lead">Contame qué necesitás y te respondo en menos de 48 horas con una propuesta.</p>
 
       <div class="c-grid">
-        <form id="quote-form" novalidate>
+        <form id="quote-form" name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+          <input type="hidden" name="form-name" value="contacto">
+          <p hidden><label>No completar: <input name="bot-field"></label></p>
           <div class="field">
             <label for="f-name" data-i18n="f_name">Tu nombre</label>
             <input id="f-name" name="name" autocomplete="name" required>
@@ -627,8 +629,8 @@ footer{padding-block:28px;border-top:1px solid color-mix(in srgb, var(--bg) 18%,
       ctx_copy:"Copiar mail",ctx_wa:"Escribirme por WhatsApp",ctx_be:"Ver Behance",ctx_ig:"Ver Instagram",
       ct_eyebrow:"Contáctame / presupuestá",ct_title:"Trabajemos "+sel("juntos"),ct_lead:"Contame qué necesitás y te respondo en menos de 48 horas con una propuesta.",
       f_name:"Tu nombre",f_email:"Tu email",f_need:"¿Qué necesitás?",f_other:"Otra cosa",f_budget:"Presupuesto aproximado",f_b0:"Todavía no sé",f_b3:"Más de USD 800",
-      f_msg:"Contame sobre tu proyecto",f_send:"Enviar consulta",f_note:"Vista previa: el envío se activa cuando publiquemos la web.",
-      f_ok:"¡Listo! Así se verá la confirmación cuando el formulario esté conectado.",f_err:"Completá tu nombre y un email válido.",
+      f_msg:"Contame sobre tu proyecto",f_send:"Enviar consulta",f_note:"Te respondo en menos de 48 horas.",
+      f_ok:"¡Gracias! Recibí tu consulta y te escribo pronto.",f_err:"Completá tu nombre y un email válido.",f_fail:"No se pudo enviar. Probá de nuevo o escribime por WhatsApp.",
       copy:"Copiar",copied:"¡Copiado!",foot:"Diseñado con amor (y muchos post-its)"
     },
     en:{
@@ -659,8 +661,8 @@ footer{padding-block:28px;border-top:1px solid color-mix(in srgb, var(--bg) 18%,
       ctx_copy:"Copy email",ctx_wa:"Message me on WhatsApp",ctx_be:"See Behance",ctx_ig:"See Instagram",
       ct_eyebrow:"Contact / get a quote",ct_title:"Let's work "+sel("together"),ct_lead:"Tell me what you need and I'll reply within 48 hours with a proposal.",
       f_name:"Your name",f_email:"Your email",f_need:"What do you need?",f_other:"Something else",f_budget:"Approximate budget",f_b0:"Not sure yet",f_b3:"Over USD 800",
-      f_msg:"Tell me about your project",f_send:"Send inquiry",f_note:"Preview: sending turns on once the site is live.",
-      f_ok:"Done! This is how the confirmation will look once the form is connected.",f_err:"Please add your name and a valid email.",
+      f_msg:"Tell me about your project",f_send:"Send inquiry",f_note:"I reply within 48 hours.",
+      f_ok:"Thanks! I got your message and will be in touch soon.",f_err:"Please add your name and a valid email.",f_fail:"It couldn't be sent. Please try again or message me on WhatsApp.",
       copy:"Copy",copied:"Copied!",foot:"Designed with love (and lots of sticky notes)"
     }
   };
@@ -700,7 +702,12 @@ footer{padding-block:28px;border-top:1px solid color-mix(in srgb, var(--bg) 18%,
     const ok = document.getElementById("form-ok"), note = document.getElementById("form-note");
     const valid = name.value.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
     if(!valid){ note.textContent = T[lang].f_err; note.style.color = "#D2386C"; ok.hidden = true; (name.value.trim()?email:name).focus(); return; }
-    note.textContent = T[lang].f_note; note.style.color = ""; ok.hidden = false;
+    note.textContent = T[lang].f_note; note.style.color = "";
+    const btn = form.querySelector('button[type="submit"]'); btn.disabled = true;
+    fetch("/", {method:"POST", headers:{"Content-Type":"application/x-www-form-urlencoded"}, body:new URLSearchParams(new FormData(form)).toString()})
+      .then(r=>{ if(!r.ok) throw 0; ok.hidden = false; form.reset(); })
+      .catch(()=>{ note.textContent = T[lang].f_fail; note.style.color = "#D2386C"; })
+      .finally(()=>{ btn.disabled = false; });
   });
 })();
 </script>
