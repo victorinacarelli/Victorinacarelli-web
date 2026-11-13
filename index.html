@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,500;125,700;125,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=6">
+<link rel="stylesheet" href="/assets/site.css?v=7">
 </head>
 <body>
 
@@ -44,7 +44,7 @@
     <div class="wrap">
       <div style="display:grid;gap:22px;min-width:0">
         <p class="eyebrow" data-i18n="hero_eyebrow">UX/UI Designer · Asesorías · Diseño web</p>
-        <h1 data-i18n-html="hero_title">Diseño <span class="rot"><span class="sr-only">apps, webs, landings y experiencias</span><span class="rot-track" aria-hidden="true"><span>apps</span><span>webs</span><span>landings</span><span>experiencias</span><span>apps</span></span></span> que <span class="sel"><i></i>funcionan<i></i></span>.</h1>
+        <h1 data-i18n-html="hero_title">Diseño <span class="rot"><span class="sr-only">apps, webs, landings y experiencias</span><span class="rot-win" aria-hidden="true"><span class="rot-arrow">→</span><span class="rot-track"><span>experiencias</span><span class="on">apps</span><span>webs</span><span>landings</span><span>experiencias</span><span>apps</span><span>webs</span></span></span></span> que <span class="sel"><i></i>funcionan<i></i></span>.</h1>
         <p class="lead" data-i18n="hero_lead">Ordeno lo que tenés en la cabeza y lo convierto en una experiencia clara, linda y que vende.</p>
         <div class="ctas">
           <a class="btn btn-primary" href="#contacto" data-i18n="cta_quote">Pedí tu presupuesto →</a>
@@ -295,7 +295,7 @@
 <script>
 (function(){
   const sel = w => '<span class="sel"><i></i>'+w+'<i></i></span>';
-  const rot = (ws, label) => '<span class="rot"><span class="sr-only">'+label+'</span><span class="rot-track" aria-hidden="true">'+ws.concat(ws[0]).map(w=>'<span>'+w+'</span>').join('')+'</span></span>';
+  const rot = (ws, label) => { const items=[ws[ws.length-1]].concat(ws, ws.slice(0,2)); return '<span class="rot"><span class="sr-only">'+label+'</span><span class="rot-win" aria-hidden="true"><span class="rot-arrow">→</span><span class="rot-track">'+items.map((w,i)=>'<span'+(i===1?' class="on"':'')+'>'+w+'</span>').join('')+'</span></span></span>'; };
   const T = {
     es:{
       nav_portfolio:"Portfolio",nav_services:"Servicios",nav_bio:"Sobre mí",nav_contact:"Contacto",cta_short:"Presupuesto",
@@ -413,6 +413,29 @@
       .finally(()=>{ btn.disabled = false; });
   });
 })();
+
+  /* Hero: rueda de palabras (estilo lista que sube, la del medio activa con flecha) */
+  (function(){
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let i=0;
+    setInterval(()=>{
+      const tr=document.querySelector(".rot-track"); if(!tr) return;
+      const kids=tr.children, n=kids.length-3; // cantidad de palabras reales
+      if (!tr.dataset.ready){ i=0; tr.dataset.ready="1"; }
+      i++;
+      tr.style.transition="";
+      tr.style.transform="translateY(calc(var(--rh) * -"+i+"))";
+      [...kids].forEach((k,j)=>k.classList.toggle("on", j===i+1));
+      if (i===n){
+        setTimeout(()=>{
+          tr.style.transition="none"; i=0;
+          tr.style.transform="translateY(0)";
+          [...kids].forEach((k,j)=>k.classList.toggle("on", j===1));
+          void tr.offsetHeight; tr.style.transition="";
+        }, 700);
+      }
+    }, 2200);
+  })();
 </script>
 </body>
 </html>
