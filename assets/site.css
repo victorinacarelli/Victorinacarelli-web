@@ -418,3 +418,4 @@ footer{padding-block:28px;border-top:1px solid color-mix(in srgb, var(--bg) 18%,
 .skills .tag:nth-child(5)::before{background:var(--naranja)}
 /* Mobile: el bloque de botones respira igual que el espacio sobre el título */
 @media (max-width:719px){.hero .ctas{margin-top:14px}}
+.pains-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}

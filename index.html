@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,500;125,700;125,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=9">
+<link rel="stylesheet" href="/assets/site.css?v=10">
 </head>
 <body>
 
@@ -25,8 +25,8 @@
   <div class="wrap">
     <a class="logo" href="#inicio">victorinacarelli<span>.</span>ux</a>
     <nav class="nav" aria-label="Secciones">
-      <a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a>
       <a href="#servicios" data-i18n="nav_services">Servicios</a>
+      <a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a>
       <a href="#bio" data-i18n="nav_bio">Sobre mí</a>
       <a href="#contacto" data-i18n="nav_contact">Contacto</a>
     </nav>
@@ -84,8 +84,7 @@
   <section class="sec" aria-labelledby="pains-title">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow" data-i18n="pains_eyebrow">Diagnóstico rápido</p>
-        <h2 id="pains-title" data-i18n-html="pains_title">¿Tu web o app <span class="sel"><i></i>no<i></i></span> está funcionando?</h2>
+        <h2 id="pains-title" data-i18n-html="pains_title">¿Tu producto digital <span class="sel"><i></i>no<i></i></span> está funcionando?</h2>
       </div>
       <div class="pains">
         <span class="pain" data-i18n="pain1">La gente entra y se va</span>
@@ -96,6 +95,46 @@
         <span class="pain" data-i18n="pain6">Te preguntan siempre lo mismo</span>
       </div>
       <p class="pains-foot"><strong data-i18n="pains_foot_t">Casi siempre es un problema de experiencia.</strong><span data-i18n="pains_foot">Y tiene solución: entender a tus usuarios y diseñar a partir de eso.</span></p>
+      <div class="ctas pains-cta"><a class="btn btn-primary" href="#contacto" data-i18n="pains_cta">Cotizá tu proyecto →</a></div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="servicios" class="sec" style="padding-top:0" aria-labelledby="sv-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 id="sv-title" data-i18n-html="sv_title">¿Cómo te puedo <span class="sel"><i></i>ayudar<i></i></span>?</h2>
+      </div>
+      <div class="svc-groups">
+        <article class="group g-web">
+          <span class="group-label" data-i18n="g_web_l">Diseño web</span>
+          <h3 data-i18n="g_web_t">Tu web, lista para vender</h3>
+          <p data-i18n="g_web_d">Diseñada con criterio UX y construida con IA, sin depender de un programador.</p>
+          <div class="items">
+            <a class="item" href="/servicios/diseno-web.html#marca-personal"><strong data-i18n="w1_t">Web de marca personal</strong><span data-i18n="w1_s">Tu portfolio y tus servicios en una web propia.</span><i class="go" aria-hidden="true"><b>→</b></i></a>
+            <a class="item" href="/servicios/diseno-web.html#landing"><strong data-i18n="w2_t">Landing de conversión</strong><span data-i18n="w2_s">Una página con un solo objetivo: que te contacten o compren.</span><i class="go" aria-hidden="true"><b>→</b></i></a>
+          </div>
+        </article>
+        <article class="group g-1on1">
+          <span class="group-label" data-i18n="g_1on1_l">Asesorías 1:1</span>
+          <h3 data-i18n="g_1on1_t">Una sesión, mucha claridad</h3>
+          <p data-i18n="g_1on1_d">Videollamadas personalizadas con recomendaciones que podés aplicar al día siguiente.</p>
+          <div class="items">
+            <a class="item" href="/servicios/asesorias.html#producto"><strong data-i18n="a1_t">Asesoría de producto digital</strong><span data-i18n="a1_s">Para marcas y emprendedores con una web o app.</span><i class="go" aria-hidden="true"><b>→</b></i></a>
+            <a class="item" href="/servicios/asesorias.html#disenadores"><strong data-i18n="a2_t">Asesoría para diseñadores</strong><span data-i18n="a2_s">Tu LinkedIn, CV y portfolio, listos para conseguir entrevistas.</span><i class="go" aria-hidden="true"><b>→</b></i></a>
+          </div>
+        </article>
+        <article class="group g-corp">
+          <span class="group-label" data-i18n="g_corp_l">Para empresas</span>
+          <h3 data-i18n="g_corp_t">Asesorías corporativas</h3>
+          <p data-i18n="g_corp_d">UX para equipos que quieren productos más fáciles de usar.</p>
+          <div class="items">
+            <a class="item" href="/servicios/corporativas.html#auditoria"><strong data-i18n="c1_t">Auditoría de producto</strong><span data-i18n="c1_s">Una mirada experta sobre tu web o app.</span><i class="go" aria-hidden="true"><b>→</b></i></a>
+            <a class="item" href="/servicios/corporativas.html#workshops"><strong data-i18n="c2_t">Workshops para equipos</strong><span data-i18n="c2_s">Capacitación práctica, online o presencial.</span><i class="go" aria-hidden="true"><b>→</b></i></a>
+            <a class="item" href="/servicios/corporativas.html#acompanamiento"><strong data-i18n="c3_t">Acompañamiento UX</strong><span data-i18n="c3_s">UX continuo sin sumar a alguien full time.</span><i class="go" aria-hidden="true"><b>→</b></i></a>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
@@ -142,47 +181,6 @@
         </a>
       </div>
       <a class="btn btn-ghost see-all" href="https://www.behance.net/victoricarelli" target="_blank" rel="noopener" data-i18n="pf_all">Ver todo en Behance ↗</a>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section id="servicios" class="sec" style="padding-top:0" aria-labelledby="sv-title">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow" data-i18n="sv_eyebrow">Mis servicios</p>
-        <h2 id="sv-title" data-i18n-html="sv_title">¿Cómo te puedo <span class="sel"><i></i>ayudar<i></i></span>?</h2>
-        <p><span class="sample" data-i18n="sample_services">Textos de ejemplo</span></p>
-      </div>
-      <div class="svc-groups">
-        <article class="group g-web">
-          <span class="group-label" data-i18n="g_web_l">Diseño web</span>
-          <h3 data-i18n="g_web_t">Tu web, lista para vender</h3>
-          <p data-i18n="g_web_d">Diseñada con criterio UX y construida con IA, sin depender de un programador.</p>
-          <div class="items">
-            <a class="item" href="/servicios/diseno-web.html#marca-personal"><strong data-i18n="w1_t">Web de marca personal</strong><span data-i18n="w1_s">Tu portfolio y tus servicios en una web propia.</span><i class="go" aria-hidden="true"><b>→</b></i></a>
-            <a class="item" href="/servicios/diseno-web.html#landing"><strong data-i18n="w2_t">Landing de conversión</strong><span data-i18n="w2_s">Una página con un solo objetivo: que te contacten o compren.</span><i class="go" aria-hidden="true"><b>→</b></i></a>
-          </div>
-        </article>
-        <article class="group g-1on1">
-          <span class="group-label" data-i18n="g_1on1_l">Asesorías 1:1</span>
-          <h3 data-i18n="g_1on1_t">Una sesión, mucha claridad</h3>
-          <p data-i18n="g_1on1_d">Videollamadas personalizadas con recomendaciones que podés aplicar al día siguiente.</p>
-          <div class="items">
-            <a class="item" href="/servicios/asesorias.html#producto"><strong data-i18n="a1_t">Asesoría de producto digital</strong><span data-i18n="a1_s">Para marcas y emprendedores con una web o app.</span><i class="go" aria-hidden="true"><b>→</b></i></a>
-            <a class="item" href="/servicios/asesorias.html#disenadores"><strong data-i18n="a2_t">Asesoría para diseñadores</strong><span data-i18n="a2_s">Tu LinkedIn, CV y portfolio, listos para conseguir entrevistas.</span><i class="go" aria-hidden="true"><b>→</b></i></a>
-          </div>
-        </article>
-        <article class="group g-corp">
-          <span class="group-label" data-i18n="g_corp_l">Para empresas</span>
-          <h3 data-i18n="g_corp_t">Asesorías corporativas</h3>
-          <p data-i18n="g_corp_d">UX para equipos que quieren productos más fáciles de usar.</p>
-          <div class="items">
-            <a class="item" href="/servicios/corporativas.html#auditoria"><strong data-i18n="c1_t">Auditoría de producto</strong><span data-i18n="c1_s">Una mirada experta sobre tu web o app.</span><i class="go" aria-hidden="true"><b>→</b></i></a>
-            <a class="item" href="/servicios/corporativas.html#workshops"><strong data-i18n="c2_t">Workshops para equipos</strong><span data-i18n="c2_s">Capacitación práctica, online o presencial.</span><i class="go" aria-hidden="true"><b>→</b></i></a>
-            <a class="item" href="/servicios/corporativas.html#acompanamiento"><strong data-i18n="c3_t">Acompañamiento UX</strong><span data-i18n="c3_s">UX continuo sin sumar a alguien full time.</span><i class="go" aria-hidden="true"><b>→</b></i></a>
-          </div>
-        </article>
-      </div>
     </div>
   </section>
 
@@ -303,9 +301,9 @@
       cta_quote:"Pedí tu presupuesto →",cta_work:"Ver proyectos",tag_writing:"UX writing",tag_ai:"Webs con IA",
       ph_photo:"Tu foto recortada acá",ph_photo_hint:"pose divertida, fondo liso",ph_photo2:"Otra foto tuya",cursor_you:"Vos",
       marquee:["UX research","UI design","Asesorías","Webs con IA","Prototipos","Tests de usabilidad"],
-      pains_eyebrow:"Diagnóstico rápido",pains_title:"¿Tu web o app "+sel("no")+" está funcionando?",
+      pains_eyebrow:"Diagnóstico rápido",pains_title:"¿Tu producto digital "+sel("no")+" está funcionando?",
       pain1:"La gente entra y se va",pain2:"Nadie completa el formulario",pain3:"Tu web no se ve como tu marca",pain4:"En el celu es un caos",pain5:"Tenés la idea pero no sabés por dónde empezar",pain6:"Te preguntan siempre lo mismo",
-      pains_foot_t:"Casi siempre es un problema de experiencia.",pains_foot:"Y tiene solución: entender a tus usuarios y diseñar a partir de eso.",
+      pains_cta:"Cotizá tu proyecto →",pains_foot_t:"Casi siempre es un problema de experiencia.",pains_foot:"Y tiene solución: entender a tus usuarios y diseñar a partir de eso.",
       pf_eyebrow:"Portfolio",pf_title:"Proyectos seleccionados",sample:"Ejemplo",chip_ai:"Con IA",
       p1_t:"VotaYa",p1_d:"Plataforma de opinión. Ver el caso completo en Behance ↗",chip_web:"Plataforma web",chip_redesign:"Rediseño",
       p2_t:"Diseño de app",p2_d:"Diseño UX/UI de una app. Ver el caso completo en Behance ↗",
@@ -338,9 +336,9 @@
       cta_quote:"Get a quote →",cta_work:"See my work",tag_writing:"UX writing",tag_ai:"AI-built websites",
       ph_photo:"Your cut-out photo here",ph_photo_hint:"fun pose, plain background",ph_photo2:"Another photo of you",cursor_you:"You",
       marquee:["UX research","UI design","Consulting","AI-built websites","Prototypes","Usability testing"],
-      pains_eyebrow:"Quick check",pains_title:"Is your website or app "+sel("not")+" working?",
+      pains_eyebrow:"Quick check",pains_title:"Is your digital product "+sel("not")+" working?",
       pain1:"People land and leave",pain2:"Nobody finishes the form",pain3:"Your site doesn't look like your brand",pain4:"It's a mess on mobile",pain5:"You have the idea but don't know where to start",pain6:"Customers keep asking the same thing",
-      pains_foot_t:"It's almost always an experience problem.",pains_foot:"And it can be fixed: understand your users and design from there.",
+      pains_cta:"Get a quote →",pains_foot_t:"It's almost always an experience problem.",pains_foot:"And it can be fixed: understand your users and design from there.",
       pf_eyebrow:"Work",pf_title:"Selected projects",sample:"Sample",chip_ai:"AI-built",
       p1_t:"VotaYa",p1_d:"Opinion platform. See the full case study on Behance ↗",chip_web:"Web platform",chip_redesign:"Redesign",
       p2_t:"App design",p2_d:"UX/UI design for an app. See the full case study on Behance ↗",
