@@ -108,7 +108,7 @@ p{margin:0}
   border-bottom:1px solid var(--line);
 }
 .hero .wrap{padding-block:36px 44px;display:grid;gap:28px}
-.hero h1{font-size:clamp(40px, 11vw, 84px);font-weight:800}
+.hero h1{font-size:clamp(36px, 10.4vw, 70px);font-weight:800}
 .hero .lead{font-size:18px;color:var(--muted);max-width:34ch}
 .hero .ctas{display:flex;flex-wrap:wrap;gap:10px}
 .photo{
@@ -392,3 +392,18 @@ footer{padding-block:28px;border-top:1px solid color-mix(in srgb, var(--bg) 18%,
 .photo-real{background:var(--lila);padding:0}
 .photo-real picture,.photo-real img{display:block;width:100%;height:100%;border-radius:var(--r-card);object-fit:cover;object-position:50% 35%}
 .photo-real img{border:1.5px solid var(--ink)}
+
+/* Hero: palabra que rota (apps / webs / landings / experiencias) con desplazamiento vertical */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.rot{--rh:1.3em;display:block;height:var(--rh);overflow:hidden;margin-block:-.14em}
+.rot-track{display:flex;flex-direction:column;animation:rot-scroll 9s cubic-bezier(.7,0,.25,1) infinite}
+.rot-track>span{display:block;height:var(--rh);line-height:var(--rh);white-space:nowrap}
+@keyframes rot-scroll{
+  0%,20%{transform:translateY(0)}
+  25%,45%{transform:translateY(calc(var(--rh) * -1))}
+  50%,70%{transform:translateY(calc(var(--rh) * -2))}
+  75%,95%{transform:translateY(calc(var(--rh) * -3))}
+  100%{transform:translateY(calc(var(--rh) * -4))}
+}
+@media (prefers-reduced-motion: reduce){.rot-track{animation:none}}
+@media (max-width:520px){.logo{font-size:16px}}
