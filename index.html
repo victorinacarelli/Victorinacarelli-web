@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,500;125,700;125,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=7">
+<link rel="stylesheet" href="/assets/site.css?v=8">
 </head>
 <body>
 
@@ -31,10 +31,10 @@
       <a href="#contacto" data-i18n="nav_contact">Contacto</a>
     </nav>
     <div class="lang" role="group" aria-label="Idioma / Language">
-      <button type="button" id="lang-es" aria-pressed="true" data-lang="es">ES</button>
-      <button type="button" id="lang-en" aria-pressed="false" data-lang="en">EN</button>
+      <button type="button" id="lang-es" aria-pressed="true" data-lang="es" aria-label="Ver en español">ES</button>
+      <button type="button" id="lang-en" aria-pressed="false" data-lang="en" aria-label="View in English">EN</button>
     </div>
-    <a class="btn btn-primary btn-sm" href="#contacto" data-i18n="cta_short">Presupuesto</a>
+    <a class="btn btn-primary btn-sm" href="#contacto" data-i18n="cta_short">Presupuestá</a>
   </div>
 </header>
 
@@ -43,20 +43,18 @@
   <section id="inicio" class="hero">
     <div class="wrap">
       <div style="display:grid;gap:22px;min-width:0">
-        <p class="eyebrow" data-i18n="hero_eyebrow">UX/UI Designer · Asesorías · Diseño web</p>
-        <h1 data-i18n-html="hero_title">Diseño <span class="rot"><span class="sr-only">apps, webs, landings y experiencias</span><span class="rot-win" aria-hidden="true"><span class="rot-arrow">→</span><span class="rot-track"><span>experiencias</span><span class="on">apps</span><span>webs</span><span>landings</span><span>experiencias</span><span>apps</span><span>webs</span></span></span></span> que <span class="sel"><i></i>funcionan<i></i></span>.</h1>
-        <p class="lead" data-i18n="hero_lead">Ordeno lo que tenés en la cabeza y lo convierto en una experiencia clara, linda y que vende.</p>
+        <h1 data-i18n-html="hero_title">Diseño <span class="rot"><span class="sr-only">apps, webs, landings y experiencias</span><span class="rot-win" aria-hidden="true"><span class="rot-track"><span>experiencias</span><span class="on">apps</span><span>webs</span><span>landings</span><span>experiencias</span><span>apps</span><span>webs</span></span></span></span> que <span class="sel"><i></i>funcionan<i></i></span>.</h1>
         <div class="ctas">
           <a class="btn btn-primary" href="#contacto" data-i18n="cta_quote">Pedí tu presupuesto →</a>
           <a class="btn btn-ghost" href="#portfolio" data-i18n="cta_work">Ver proyectos</a>
         </div>
-        <div class="tags" aria-label="Especialidades">
+        <p class="skills" aria-label="Especialidades">
           <span class="tag">UX research</span>
           <span class="tag">UI design</span>
           <span class="tag">Wireframes</span>
           <span class="tag" data-i18n="tag_writing">UX writing</span>
           <span class="tag" data-i18n="tag_ai">Webs con IA</span>
-        </div>
+        </p>
       </div>
       <div style="min-width:0;display:grid;gap:10px">
         <div class="photo photo-real">
@@ -295,10 +293,10 @@
 <script>
 (function(){
   const sel = w => '<span class="sel"><i></i>'+w+'<i></i></span>';
-  const rot = (ws, label) => { const items=[ws[ws.length-1]].concat(ws, ws.slice(0,2)); return '<span class="rot"><span class="sr-only">'+label+'</span><span class="rot-win" aria-hidden="true"><span class="rot-arrow">→</span><span class="rot-track">'+items.map((w,i)=>'<span'+(i===1?' class="on"':'')+'>'+w+'</span>').join('')+'</span></span></span>'; };
+  const rot = (ws, label) => { const items=[ws[ws.length-1]].concat(ws, ws.slice(0,2)); return '<span class="rot"><span class="sr-only">'+label+'</span><span class="rot-win" aria-hidden="true"><span class="rot-track">'+items.map((w,i)=>'<span'+(i===1?' class="on"':'')+'>'+w+'</span>').join('')+'</span></span></span>'; };
   const T = {
     es:{
-      nav_portfolio:"Portfolio",nav_services:"Servicios",nav_bio:"Sobre mí",nav_contact:"Contacto",cta_short:"Presupuesto",
+      nav_portfolio:"Portfolio",nav_services:"Servicios",nav_bio:"Sobre mí",nav_contact:"Contacto",cta_short:"Presupuestá",
       hero_eyebrow:"UX/UI Designer · Asesorías · Diseño web",
       hero_title:"Diseño "+rot(["apps","webs","landings","experiencias"],"apps, webs, landings y experiencias")+" que "+sel("funcionan")+".",
       hero_lead:"Ordeno lo que tenés en la cabeza y lo convierto en una experiencia clara, linda y que vende.",

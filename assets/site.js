@@ -1,7 +1,7 @@
 /* Shared script for the service detail pages: language toggle and "Quiero esta" preselection. */
 (function(){
   const COMMON = {
-    es:{nav_portfolio:"Portfolio",nav_services:"Servicios",nav_bio:"Sobre mí",nav_contact:"Contacto",cta_short:"Presupuesto",
+    es:{nav_portfolio:"Portfolio",nav_services:"Servicios",nav_bio:"Sobre mí",nav_contact:"Contacto",cta_short:"Presupuestá",
         crumb_home:"Inicio",crumb_services:"Servicios",foot:"Diseñado con amor (y muchos post-its)",sample:"Textos de ejemplo"},
     en:{nav_portfolio:"Work",nav_services:"Services",nav_bio:"About",nav_contact:"Contact",cta_short:"Get a quote",
         crumb_home:"Home",crumb_services:"Services",foot:"Designed with love (and lots of sticky notes)",sample:"Sample copy"}

@@ -86,7 +86,10 @@ p{margin:0}
 .lang button{
   font:600 12px/1 var(--font-mono);padding:7px 9px;border:0;background:transparent;color:var(--ink);cursor:pointer
 }
-.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+/* Solo se muestra el idioma al que se puede cambiar */
+.lang button[aria-pressed="true"]{display:none}
+.lang button{padding:8px 11px}
+@media (hover:hover){.lang button:hover{background:var(--ink);color:var(--bg)}}
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
   font:600 15px/1 var(--font-body);text-decoration:none;cursor:pointer;
@@ -399,9 +402,13 @@ footer{padding-block:28px;border-top:1px solid color-mix(in srgb, var(--bg) 18%,
 .rot-win{position:relative;display:block;height:calc(var(--rh) * 3);overflow:hidden;
   -webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 30%,#000 70%,transparent 100%);
           mask-image:linear-gradient(to bottom,transparent 0,#000 30%,#000 70%,transparent 100%)}
-.rot-arrow{position:absolute;left:0;top:var(--rh);height:var(--rh);line-height:var(--rh);transform:scale(.8);transform-origin:left center}
-.rot-track{display:flex;flex-direction:column;padding-left:1.05em;transition:transform .6s cubic-bezier(.7,0,.25,1)}
+.rot-track{display:flex;flex-direction:column;transition:transform .6s cubic-bezier(.7,0,.25,1)}
 .rot-track>span{display:block;height:var(--rh);line-height:var(--rh);white-space:nowrap;opacity:.16;transition:opacity .5s ease}
 .rot-track>span.on{opacity:1}
 @media (prefers-reduced-motion: reduce){.rot-track,.rot-track>span{transition:none}}
 @media (max-width:520px){.logo{font-size:16px}}
+
+/* Especialidades: texto plano (no parecen botones) */
+.skills{margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;font:500 14px/1.5 var(--font-body);color:var(--muted)}
+.skills .tag{border:0;background:none;padding:0;font:inherit;border-radius:0}
+.skills .tag::before{content:"✦";margin-right:7px;font-size:10px;color:var(--ink);vertical-align:2px}
