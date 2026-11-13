@@ -16,7 +16,7 @@
   --verde:#47F08B;
   --on-pastel:#000000;
   --grid:rgba(120,90,180,.10);
-  --font-display:"Bricolage Grotesque", "Arial Rounded MT Bold", system-ui, sans-serif;
+  --font-display:"Archivo", "Arial Black", system-ui, sans-serif;
   --font-body:"Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
   --r-pill:999px;
@@ -45,7 +45,7 @@ a{color:inherit}
   padding-left:max(16px, env(safe-area-inset-left,0px));
   padding-right:max(16px, env(safe-area-inset-right,0px));
 }
-h1,h2,h3{font-family:var(--font-display);line-height:1.02;letter-spacing:-.02em;text-wrap:balance;margin:0}
+h1,h2,h3{font-family:var(--font-display);font-stretch:125%;line-height:1.02;letter-spacing:-.02em;text-wrap:balance;margin:0}
 p{margin:0}
 .mono{font-family:var(--font-mono);font-size:12px;letter-spacing:.02em}
 .eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
@@ -77,7 +77,7 @@ p{margin:0}
   border-bottom:1px solid var(--line);
 }
 .top .wrap{display:flex;align-items:center;gap:10px;padding-block:10px}
-.logo{font-family:var(--font-display);font-weight:800;font-size:20px;text-decoration:none;letter-spacing:-.02em;margin-right:auto;white-space:nowrap}
+.logo{font-family:var(--font-display);font-stretch:125%;font-weight:800;font-size:20px;text-decoration:none;letter-spacing:-.02em;margin-right:auto;white-space:nowrap}
 .logo span{color:var(--select)}
 .nav{display:none}
 .lang{
@@ -175,7 +175,7 @@ section{scroll-margin-top:70px}
 .pain:nth-child(5){background:var(--azul);transform:rotate(-5deg)}
 .pain:nth-child(6){background:var(--naranja);transform:rotate(2deg)}
 .pains-foot{margin-top:22px;font-size:18px;max-width:46ch}
-.pains-foot strong{font-family:var(--font-display);font-size:22px;display:block;margin-bottom:4px}
+.pains-foot strong{font-family:var(--font-display);font-stretch:125%;font-size:22px;display:block;margin-bottom:4px}
 
 /* Portfolio cards as files/windows */
 .grid{display:grid;gap:18px}
@@ -221,7 +221,7 @@ section{scroll-margin-top:70px}
 .service li::before{content:"";flex:none;width:16px;height:16px;margin-top:3px;border:1.5px solid var(--on-pastel);border-radius:4px;background:
   linear-gradient(45deg, transparent 45%, var(--on-pastel) 45% 58%, transparent 58%) }
 .service .price{display:flex;align-items:baseline;justify-content:space-between;gap:10px;flex-wrap:wrap;padding-top:12px;border-top:1.5px dashed color-mix(in srgb, var(--on-pastel) 45%, transparent)}
-.service .price strong{font-family:var(--font-display);font-size:22px}
+.service .price strong{font-family:var(--font-display);font-stretch:125%;font-size:22px}
 .service .btn{border-color:var(--on-pastel);background:var(--on-pastel);color:#fff}
 .service .btn:hover{box-shadow:3px 3px 0 #fff}
 
@@ -323,7 +323,7 @@ footer{padding-block:28px;border-top:1px solid color-mix(in srgb, var(--bg) 18%,
   display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center;text-decoration:none;
   padding:14px 0;border-top:1.5px dashed color-mix(in srgb, currentColor 40%, transparent)
 }
-.item strong{font-family:var(--font-display);font-size:19px;font-weight:700;line-height:1.15}
+.item strong{font-family:var(--font-display);font-stretch:125%;font-size:19px;font-weight:700;line-height:1.15}
 .item span{grid-column:1;font-size:14px;opacity:.85}
 .item .go{grid-column:2;grid-row:1 / span 2;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;border:1.5px solid currentColor;font-size:16px;transition:transform .15s ease}
 .item:hover .go{transform:translateX(3px);background:currentColor}
@@ -364,11 +364,11 @@ footer{padding-block:28px;border-top:1px solid color-mix(in srgb, var(--bg) 18%,
 .meta strong{font-size:15px}
 .offer-foot{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;padding-top:16px;border-top:1.5px dashed var(--line)}
 .offer-foot .price small{display:block;color:var(--muted);font-size:13px}
-.offer-foot .price strong{font-family:var(--font-display);font-size:24px}
+.offer-foot .price strong{font-family:var(--font-display);font-stretch:125%;font-size:24px}
 .steps{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:step}
 .steps li{counter-increment:step;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px}
 .steps li::before{content:counter(step);grid-row:span 2;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--select);color:#fff;font:700 15px/1 var(--font-mono)}
-.steps strong{font-family:var(--font-display);font-size:19px}
+.steps strong{font-family:var(--font-display);font-stretch:125%;font-size:19px}
 .steps span{color:var(--muted);font-size:15px}
 .cta-band{background:var(--amarillo);color:var(--on-pastel);border:1.5px solid var(--on-pastel);border-radius:var(--r-card);padding:28px 20px;display:grid;gap:14px;justify-items:start}
 .cta-band h2{font-size:clamp(30px, 8vw, 48px);font-weight:800}
