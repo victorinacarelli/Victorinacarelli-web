@@ -21,7 +21,7 @@ PAGES = [
         "title": ("Diseño web · Victorina Carelli UX", "Web design · Victorina Carelli UX"),
         "color": "var(--lila)",
         "eyebrow": ("Servicios · Diseño web", "Services · Web design"),
-        "h1": ("Tu web, lista para " + sel("vender"), "A website ready to " + sel("sell")),
+        "h1": ("Una web que hable por " + sel("vos"), "A website that speaks for " + sel("you")),
         "lead": (
             "Webs diseñadas con criterio UX y construidas con IA. Rápidas, lindas y fáciles de actualizar, sin depender de un programador.",
             "Websites designed with UX thinking and built with AI. Fast, beautiful and easy to update, with no developer needed.",
@@ -35,10 +35,10 @@ PAGES = [
         ],
         "offers": [
             {
-                "id": "marca-personal", "need": "w1",
-                "name": ("Web de marca personal", "Personal brand website"),
-                "for": ("Para profesionales y emprendedores que quieren mostrar su trabajo y recibir clientes. Como esta web.",
-                        "For professionals and founders who want to show their work and get clients. Like this website."),
+                "id": "marca-portfolio", "need": "w1",
+                "name": ("Web de marca o portfolio", "Brand website or portfolio"),
+                "for": ("Para marcas que necesitan su web y para profesionales que quieren mostrar sus proyectos. Simple, clara y a tu medida.",
+                        "For brands that need a website and for professionals who want to show their projects. Simple, clear and tailored to you."),
                 "includes": [
                     ("Estructura y textos pensados en UX", "UX-driven structure and copy"),
                     ("Diseño a medida, en uno o dos idiomas", "Custom design, in one or two languages"),
@@ -52,8 +52,8 @@ PAGES = [
             {
                 "id": "landing", "need": "w2",
                 "name": ("Landing de conversión", "Conversion landing page"),
-                "for": ("Para lanzamientos, campañas o un servicio puntual. Una página con un solo objetivo: que te contacten, se registren o compren.",
-                        "For launches, campaigns or a single service. One page with one goal: get people to contact you, sign up or buy."),
+                "for": ("Una página enfocada en convertir visitas en consultas o ventas. Ideal para lanzamientos, campañas o un servicio puntual.",
+                        "A page focused on turning visits into inquiries or sales. Great for launches, campaigns or a single service."),
                 "includes": [
                     ("Un objetivo claro y una sola llamada a la acción", "One clear goal and a single call to action"),
                     ("Textos persuasivos con foco en conversión", "Persuasive copy focused on conversion"),
