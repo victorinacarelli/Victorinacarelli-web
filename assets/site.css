@@ -408,7 +408,13 @@ footer{padding-block:28px;border-top:1px solid color-mix(in srgb, var(--bg) 18%,
 @media (prefers-reduced-motion: reduce){.rot-track,.rot-track>span{transition:none}}
 @media (max-width:520px){.logo{font-size:16px}}
 
-/* Especialidades: texto plano (no parecen botones) */
-.skills{margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;font:500 14px/1.5 var(--font-body);color:var(--muted)}
-.skills .tag{border:0;background:none;padding:0;font:inherit;border-radius:0}
-.skills .tag::before{content:"✦";margin-right:7px;font-size:10px;color:var(--ink);vertical-align:2px}
+/* Especialidades: texto con puntito de color de la paleta (no parecen botones) */
+.skills{margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;font:500 15px/1.4 var(--font-body);color:var(--ink)}
+.skills .tag{border:0;background:none;padding:0;font:inherit;border-radius:0;display:inline-flex;align-items:center;gap:8px}
+.skills .tag::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--lila);flex:none}
+.skills .tag:nth-child(2)::before{background:var(--lima)}
+.skills .tag:nth-child(3)::before{background:var(--rosa)}
+.skills .tag:nth-child(4)::before{background:var(--amarillo);box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
+.skills .tag:nth-child(5)::before{background:var(--naranja)}
+/* Mobile: el bloque de botones respira igual que el espacio sobre el título */
+@media (max-width:719px){.hero .ctas{margin-top:14px}}
