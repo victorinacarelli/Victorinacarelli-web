@@ -37,8 +37,8 @@ PAGES = [
             {
                 "id": "marca-portfolio", "need": "w1",
                 "name": ("Web de marca o portfolio", "Brand website or portfolio"),
-                "for": ("Para marcas que necesitan su web y para profesionales que quieren mostrar sus proyectos. Simple, clara y a tu medida.",
-                        "For brands that need a website and for professionals who want to show their projects. Simple, clear and tailored to you."),
+                "for": ("Para marcas y profesionales que quieren mostrar sus proyectos. Simple, clara y a medida.",
+                        "For brands and professionals who want to show their projects. Simple, clear and tailored."),
                 "includes": [
                     ("Estructura y textos pensados en UX", "UX-driven structure and copy"),
                     ("Diseño a medida, en uno o dos idiomas", "Custom design, in one or two languages"),
@@ -52,8 +52,8 @@ PAGES = [
             {
                 "id": "landing", "need": "w2",
                 "name": ("Landing de conversión", "Conversion landing page"),
-                "for": ("Una página enfocada en convertir visitas en consultas o ventas. Ideal para lanzamientos, campañas o un servicio puntual.",
-                        "A page focused on turning visits into inquiries or sales. Great for launches, campaigns or a single service."),
+                "for": ("Una página enfocada en convertir. Ideal para lanzamientos, campañas o un servicio puntual.",
+                        "A page focused on converting. Great for launches, campaigns or a single service."),
                 "includes": [
                     ("Un objetivo claro y una sola llamada a la acción", "One clear goal and a single call to action"),
                     ("Textos persuasivos con foco en conversión", "Persuasive copy focused on conversion"),
