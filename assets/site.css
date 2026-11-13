@@ -22,12 +22,8 @@
   --r-pill:999px;
   --r-card:22px;
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#16121F;--surface:#201A2D;--ink:#F4EFFB;--muted:#B5ABC8;--line:#342B45;
-    --select:#6B95FF;--grid:rgba(200,180,255,.07);color-scheme:dark;
-  }
-}
+/* Siempre en modo claro (fondo blanco), aunque el dispositivo esté en modo oscuro. */
+:root{color-scheme:light}
 :root[data-theme="dark"]{
   --bg:#16121F;--surface:#201A2D;--ink:#F4EFFB;--muted:#B5ABC8;--line:#342B45;
   --select:#6B95FF;--grid:rgba(200,180,255,.07);color-scheme:dark;
