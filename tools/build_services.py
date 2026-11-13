@@ -76,7 +76,7 @@ PAGES = [
         "title": ("Asesorías 1:1 · Victorina Carelli UX", "1:1 sessions · Victorina Carelli UX"),
         "color": "var(--lima)",
         "eyebrow": ("Servicios · Asesorías 1:1", "Services · 1:1 sessions"),
-        "h1": ("Una sesión, mucha " + sel("claridad"), "One session, lots of " + sel("clarity")),
+        "h1": ("Análisis integral " + sel("360°"), "360° in-depth " + sel("review")),
         "lead": (
             "Videollamadas personalizadas donde revisamos tu caso y te llevás recomendaciones concretas para aplicar al día siguiente.",
             "Personal video calls where we review your case and you leave with concrete advice to apply the next day.",
