@@ -229,9 +229,9 @@
       <p class="lead" data-i18n="ct_lead">Contame qué necesitás y te respondo en menos de 48 horas con una propuesta.</p>
 
       <div class="c-grid">
-        <form id="quote-form" name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
-          <input type="hidden" name="form-name" value="contacto">
-          <p hidden><label>No completar: <input name="bot-field"></label></p>
+        <form id="quote-form" action="https://formspree.io/f/mgakokyd" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="Nueva consulta desde la web">
+          <p hidden><label>No completar: <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
           <div class="field">
             <label for="f-name" data-i18n="f_name">Tu nombre</label>
             <input id="f-name" name="name" autocomplete="name" required>
@@ -406,7 +406,7 @@
     if(!valid){ note.textContent = T[lang].f_err; note.style.color = "#D2386C"; ok.hidden = true; (name.value.trim()?email:name).focus(); return; }
     note.textContent = T[lang].f_note; note.style.color = "";
     const btn = form.querySelector('button[type="submit"]'); btn.disabled = true;
-    fetch("/", {method:"POST", headers:{"Content-Type":"application/x-www-form-urlencoded"}, body:new URLSearchParams(new FormData(form)).toString()})
+    fetch(form.action, {method:"POST", headers:{"Accept":"application/json"}, body:new FormData(form)})
       .then(r=>{ if(!r.ok) throw 0; ok.hidden = false; form.reset(); })
       .catch(()=>{ note.textContent = T[lang].f_fail; note.style.color = "#D2386C"; })
       .finally(()=>{ btn.disabled = false; });
