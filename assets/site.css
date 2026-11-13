@@ -1,17 +1,20 @@
 /* Layout: mobile-first single column; the site is a friendly design canvas —
    selection handles, multiplayer cursors, redlines and pill tags as Victo's own UX vernacular. */
 :root{
-  --bg:#FAF7F5;
+  --bg:#FFFFFF;
   --surface:#FFFFFF;
-  --ink:#1D1630;
+  --ink:#000000;
   --muted:#5E5672;
   --line:#E6DFEA;
   --select:#2F6BFF;
-  --lila:#CDB8F6;
-  --lima:#CBF25C;
-  --rosa:#FFB8DA;
-  --amarillo:#FFE16B;
-  --on-pastel:#1D1630;
+  --lila:#8E9AFD;
+  --lima:#D9EF69;
+  --rosa:#FEB1ED;
+  --amarillo:#FBFC55;
+  --azul:#5E9BFD;
+  --naranja:#FE8E59;
+  --verde:#47F08B;
+  --on-pastel:#000000;
   --grid:rgba(120,90,180,.10);
   --font-display:"Bricolage Grotesque", "Arial Rounded MT Bold", system-ui, sans-serif;
   --font-body:"Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -147,7 +150,7 @@ p{margin:0}
 .redline::before,.redline::after{content:"";height:1px;flex:1;background:currentColor}
 
 /* ---------- Marquee ---------- */
-.marquee{background:var(--lima);color:var(--on-pastel);overflow:hidden;border-bottom:1.5px solid var(--on-pastel);border-top:1.5px solid var(--on-pastel)}
+.marquee{background:var(--verde);color:var(--on-pastel);overflow:hidden;border-bottom:1.5px solid var(--on-pastel);border-top:1.5px solid var(--on-pastel)}
 .marquee .track{display:flex;width:max-content;animation:slide 28s linear infinite}
 .marquee span{font:600 15px/1 var(--font-body);padding:12px 18px;white-space:nowrap;display:flex;align-items:center;gap:18px}
 .marquee span::after{content:"✦";font-size:13px}
@@ -173,8 +176,8 @@ section{scroll-margin-top:70px}
 .pain:nth-child(2){background:var(--amarillo);transform:rotate(3deg)}
 .pain:nth-child(3){background:var(--rosa);transform:rotate(-2deg)}
 .pain:nth-child(4){background:var(--lima);transform:rotate(5deg)}
-.pain:nth-child(5){background:var(--lila);transform:rotate(-5deg)}
-.pain:nth-child(6){background:var(--rosa);transform:rotate(2deg)}
+.pain:nth-child(5){background:var(--azul);transform:rotate(-5deg)}
+.pain:nth-child(6){background:var(--naranja);transform:rotate(2deg)}
 .pains-foot{margin-top:22px;font-size:18px;max-width:46ch}
 .pains-foot strong{font-family:var(--font-display);font-size:22px;display:block;margin-bottom:4px}
 
