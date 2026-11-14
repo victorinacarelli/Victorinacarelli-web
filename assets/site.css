@@ -439,10 +439,11 @@ mark.hl{background:linear-gradient(transparent 50%, var(--rosa) 50%, var(--rosa)
 }
 /* Sección con fondo pleno + enrejado y corte ondulado */
 .sec-color{
-  position:relative;background-color:var(--lila);
+  --sec-bg:color-mix(in srgb, var(--lila) 16%, #fff);
+  position:relative;background-color:var(--sec-bg);
   background-image:
-    linear-gradient(rgba(255,255,255,.22) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.22) 1px, transparent 1px);
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
   background-size:32px 32px;
   padding-bottom:120px;margin-bottom:24px;
 }
@@ -451,4 +452,3 @@ mark.hl{background:linear-gradient(transparent 50%, var(--rosa) 50%, var(--rosa)
   background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='44' viewBox='0 0 240 44'%3E%3Cpath d='M0 22 C40 4 80 4 120 22 S200 40 240 22 V44 H0Z' fill='%23fff'/%3E%3C/svg%3E") repeat-x left bottom/240px 44px;
 }
 .sec-color .pains{border:1.5px solid var(--ink)}
-.sec-color mark.hl{background:linear-gradient(transparent 50%, var(--amarillo) 50%, var(--amarillo) 94%, transparent 94%)}
