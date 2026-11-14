@@ -439,12 +439,8 @@ mark.hl{background:linear-gradient(transparent 50%, var(--rosa) 50%, var(--rosa)
 }
 /* Sección con fondo pleno + enrejado y corte ondulado */
 .sec-color{
-  --sec-bg:color-mix(in srgb, var(--lila) 16%, #fff);
+  --sec-bg:color-mix(in srgb, var(--lima) 22%, #fff);
   position:relative;background-color:var(--sec-bg);
-  background-image:
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size:32px 32px;
   padding-bottom:120px;margin-bottom:24px;
 }
 .sec-color::after{
