@@ -178,7 +178,7 @@ section{scroll-margin-top:70px}
 .pain:nth-child(5){background:var(--azul);transform:rotate(-5deg)}
 .pain:nth-child(6){background:var(--naranja);transform:rotate(2deg)}
 .pains-foot{margin-top:22px;font-size:18px;max-width:46ch}
-.pains-foot strong{font-family:var(--font-display);font-stretch:125%;font-size:22px;display:block;margin-bottom:4px}
+.pains-foot strong{font-family:var(--font-display);font-stretch:125%;font-size:22px;display:block;margin-bottom:14px}
 
 /* Portfolio cards as files/windows */
 .grid{display:grid;gap:18px}
@@ -418,7 +418,7 @@ footer{padding-block:28px;border-top:1px solid color-mix(in srgb, var(--bg) 18%,
 .skills .tag:nth-child(5)::before{background:var(--naranja)}
 /* Mobile: el bloque de botones respira igual que el espacio sobre el título */
 @media (max-width:719px){.hero .ctas{margin-top:14px}}
-.pains-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.pains-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
 /* "que funcionan" siempre en una sola línea (no salta al hacer scroll en mobile) */
 .h-end{display:inline-block;white-space:nowrap}
 @media (max-width:370px){.logo{font-size:12px}.top .wrap{gap:6px}.top .btn-sm{padding:8px 10px;font-size:12px}.lang button{padding:6px 7px}}
@@ -429,4 +429,4 @@ html,body{overflow-x:clip}
   .pain{font-size:clamp(11px, 3.35vw, 15px);padding:12px 12px}
 }
 /* Resaltado sutil tipo marcador */
-mark.hl{background:linear-gradient(transparent 58%, color-mix(in srgb, var(--lima) 85%, transparent) 58%, color-mix(in srgb, var(--lima) 85%, transparent) 92%, transparent 92%);color:inherit;padding:0 .05em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+mark.hl{background:linear-gradient(transparent 50%, var(--rosa) 50%, var(--rosa) 94%, transparent 94%);color:inherit;padding:0 .05em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
