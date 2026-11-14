@@ -430,3 +430,10 @@ html,body{overflow-x:clip}
 }
 /* Resaltado sutil tipo marcador */
 mark.hl{background:linear-gradient(transparent 50%, var(--rosa) 50%, var(--rosa) 94%, transparent 94%);color:inherit;padding:0 .05em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+/* Mobile: las cards de servicios se apilan al scrollear */
+@media (max-width:719px){
+  .svc-groups{gap:28px}
+  .svc-groups .group{position:sticky;top:calc(env(safe-area-inset-top,0px) + 76px)}
+  .svc-groups .group:nth-child(2){top:calc(env(safe-area-inset-top,0px) + 90px)}
+  .svc-groups .group:nth-child(3){top:calc(env(safe-area-inset-top,0px) + 104px)}
+}
