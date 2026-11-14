@@ -111,7 +111,7 @@ p{margin:0}
   border-bottom:1px solid var(--line);
 }
 .hero .wrap{padding-block:36px 44px;display:grid;gap:28px}
-.hero h1{font-size:clamp(32px, 9.4vw, 66px);font-weight:800}
+.hero h1{text-wrap:wrap;font-size:clamp(26px, 9.4vw, 66px);font-weight:800}
 .hero .lead{font-size:18px;color:var(--muted);max-width:34ch}
 .hero .ctas{display:flex;flex-wrap:wrap;gap:10px}
 .photo{
@@ -419,3 +419,7 @@ footer{padding-block:28px;border-top:1px solid color-mix(in srgb, var(--bg) 18%,
 /* Mobile: el bloque de botones respira igual que el espacio sobre el título */
 @media (max-width:719px){.hero .ctas{margin-top:14px}}
 .pains-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+/* "que funcionan" siempre en una sola línea (no salta al hacer scroll en mobile) */
+.h-end{display:inline-block;white-space:nowrap}
+@media (max-width:370px){.logo{font-size:12px}.top .wrap{gap:6px}.top .btn-sm{padding:8px 10px;font-size:12px}.lang button{padding:6px 7px}}
+html,body{overflow-x:clip}
