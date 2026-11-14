@@ -423,3 +423,8 @@ footer{padding-block:28px;border-top:1px solid color-mix(in srgb, var(--bg) 18%,
 .h-end{display:inline-block;white-space:nowrap}
 @media (max-width:370px){.logo{font-size:12px}.top .wrap{gap:6px}.top .btn-sm{padding:8px 10px;font-size:12px}.lang button{padding:6px 7px}}
 html,body{overflow-x:clip}
+/* Mobile: pills de problemas en una sola línea */
+@media (max-width:719px){
+  .pains{padding:24px 8px}
+  .pain{font-size:clamp(11px, 3.35vw, 15px);padding:12px 12px}
+}
