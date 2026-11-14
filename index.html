@@ -429,5 +429,26 @@
     }, 2200);
   })();
 </script>
+<script>
+/* Mobile: las 3 cards de servicios se sueltan juntas al final del apilado */
+(function(){
+  var mq=matchMedia('(max-width:719px)');
+  function fit(){
+    var cs=[].slice.call(document.querySelectorAll('.svc-groups .group'));
+    cs.forEach(function(c){c.style.marginBottom='';});
+    if(!mq.matches||cs.length<2)return;
+    var last=cs[cs.length-1],lt=parseFloat(getComputedStyle(last).top)||0,lh=last.offsetHeight;
+    cs.slice(0,-1).forEach(function(c){
+      var t=parseFloat(getComputedStyle(c).top)||0;
+      c.style.marginBottom=Math.max(0,(lt-t)+(lh-c.offsetHeight))+'px';
+    });
+  }
+  addEventListener('load',fit);addEventListener('resize',fit);
+  if(mq.addEventListener)mq.addEventListener('change',fit);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);
+  if(window.ResizeObserver){var ro=new ResizeObserver(function(){requestAnimationFrame(fit);});document.querySelectorAll('.svc-groups .group').forEach(function(c){ro.observe(c);});}
+  fit();
+})();
+</script>
 </body>
 </html>
