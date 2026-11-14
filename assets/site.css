@@ -448,3 +448,6 @@ mark.hl{background:linear-gradient(transparent 50%, var(--rosa) 50%, var(--rosa)
   background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='44' viewBox='0 0 240 44'%3E%3Cpath d='M0 22 C40 4 80 4 120 22 S200 40 240 22 V44 H0Z' fill='%23fff'/%3E%3C/svg%3E") repeat-x left bottom/240px 44px;
 }
 .sec-color .pains{border:1.5px solid var(--ink)}
+@media (min-width:720px){
+  .sec-color{padding-bottom:84px;margin-bottom:48px}
+}
