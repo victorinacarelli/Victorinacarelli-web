@@ -428,3 +428,5 @@ html,body{overflow-x:clip}
   .pains{padding:24px 8px}
   .pain{font-size:clamp(11px, 3.35vw, 15px);padding:12px 12px}
 }
+/* Resaltado sutil tipo marcador */
+mark.hl{background:linear-gradient(transparent 58%, color-mix(in srgb, var(--lima) 85%, transparent) 58%, color-mix(in srgb, var(--lima) 85%, transparent) 92%, transparent 92%);color:inherit;padding:0 .05em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
