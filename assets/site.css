@@ -207,7 +207,7 @@ section{scroll-margin-top:70px}
 .p-meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 .chip{font:500 12px/1 var(--font-mono);padding:6px 9px;border-radius:var(--r-pill);background:var(--bg);border:1px solid var(--line)}
 .result{font-weight:600;color:var(--ink)!important}
-.see-all{margin-top:22px}
+.see-all{display:flex;width:fit-content;margin:32px auto 0}
 
 /* Services */
 .service{
