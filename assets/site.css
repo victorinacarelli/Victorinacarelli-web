@@ -305,8 +305,8 @@ footer{padding-block:28px;border-top:1px solid color-mix(in srgb, var(--bg) 18%,
 }
 @media (min-width:1024px){
   .grid.services{grid-template-columns:repeat(3,1fr)}
-  .grid.three{grid-template-columns:1.4fr 1fr}
-  .grid.three .wide{grid-column:auto;grid-row:span 2}
+  .grid.three{grid-template-columns:repeat(3,1fr)}
+  .grid.three .wide{grid-column:auto;grid-row:auto}
 }
 
 /* ---------- Services overview (home) ---------- */
