@@ -451,3 +451,6 @@ mark.hl{background:linear-gradient(transparent 50%, var(--rosa) 50%, var(--rosa)
 @media (min-width:720px){
   .sec-color{padding-bottom:84px;margin-bottom:48px}
 }
+/* Portadas reales de proyectos */
+.thumb.has-img{padding:0;background:var(--surface)}
+.thumb.has-img img{width:100%;height:100%;object-fit:cover;display:block}
