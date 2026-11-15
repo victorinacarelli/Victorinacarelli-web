@@ -454,3 +454,5 @@ mark.hl{background:linear-gradient(transparent 50%, var(--rosa) 50%, var(--rosa)
 /* Portadas reales de proyectos */
 .thumb.has-img{padding:0;background:var(--surface)}
 .thumb.has-img img{width:100%;height:100%;object-fit:cover;display:block}
+.project h3::after{content:"↗";font-family:var(--font-body);font-weight:500;margin-left:.3em;display:inline-block;transition:transform .2s ease}
+@media (hover:hover){.project:hover h3::after{transform:translate(2px,-2px)}}
