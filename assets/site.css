@@ -490,10 +490,10 @@ mark.hl{background:linear-gradient(transparent 50%, var(--rosa) 50%, var(--rosa)
 .st-4 img{object-position:50% 20%}
 .st-4 figcaption{font-size:9px;padding:6px 1px 10px}
 .st-4 figcaption::after{font-size:11px}
-.st-sticker{position:absolute;z-index:5;left:-1%;top:-1%;width:46px;height:46px;border-radius:50%;background:var(--verde);display:grid;place-items:center;transform:rotate(12deg);border:1.5px solid var(--ink)}
+.st-sticker{position:absolute;z-index:5;left:-1%;top:-1%;width:46px;height:46px;border-radius:50%;background:var(--lima);display:grid;place-items:center;transform:rotate(12deg);border:1.5px solid var(--ink)}
 @media (max-width:719px){.st-in{--r:4px}.stamp figcaption{font-size:10px}.st-4 figcaption{font-size:8px}.st-sticker{width:38px;height:38px;font-size:20px}}
 .pill3d{display:grid;place-items:center;width:62%;height:62%;border-radius:28%;
-  background:linear-gradient(160deg,#7BE07A 0%,#2FB24A 55%,#1E8A36 100%);
+  background:linear-gradient(160deg,#3a3a3a 0%,#111 55%,#000 100%);
   box-shadow:inset 0 2px 1px rgba(255,255,255,.55),inset 0 -3px 4px rgba(0,0,0,.25),0 2px 3px rgba(0,0,0,.35);position:relative}
-.pill3d::before{content:"";position:absolute;left:12%;right:12%;top:6%;height:38%;border-radius:40% 40% 50% 50%;background:linear-gradient(rgba(255,255,255,.55),rgba(255,255,255,0))}
-.pill3d svg{position:relative;filter:drop-shadow(0 1px 1px rgba(0,0,0,.3))}
+.pill3d::before{content:"";position:absolute;left:12%;right:12%;top:6%;height:38%;border-radius:40% 40% 50% 50%;background:linear-gradient(rgba(255,255,255,.28),rgba(255,255,255,0))}
+.pill3d svg{position:relative}
