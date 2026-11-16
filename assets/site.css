@@ -470,3 +470,25 @@ mark.hl{background:linear-gradient(transparent 50%, var(--rosa) 50%, var(--rosa)
 @media (min-width:720px){.solution{padding:40px 48px 34px}.sol-tag{left:32px;font-size:13px}}
 .br-d{display:none}
 @media (min-width:720px){.br-d{display:inline}}
+
+/* ===== Mini bio: collage de estampillas ===== */
+.collage{position:relative;width:100%;aspect-ratio:1/1.13;margin-bottom:8px}
+.stamp{position:absolute;margin:0;filter:drop-shadow(0 8px 14px rgba(58,28,20,.18))}
+.st-in{
+  --r:5px;background:var(--fr,var(--rosa));padding:calc(var(--r)*3) calc(var(--r)*3) 0;
+  -webkit-mask:radial-gradient(var(--r),#0000 98%,#000) round calc(-1.5*var(--r)) calc(-1.5*var(--r))/calc(3*var(--r)) calc(3*var(--r)),linear-gradient(#000 0 0) no-repeat 50%/calc(100% - 3*var(--r)) calc(100% - 3*var(--r));
+          mask:radial-gradient(var(--r),#0000 98%,#000) round calc(-1.5*var(--r)) calc(-1.5*var(--r))/calc(3*var(--r)) calc(3*var(--r)),linear-gradient(#000 0 0) no-repeat 50%/calc(100% - 3*var(--r)) calc(100% - 3*var(--r));
+}
+.stamp img{display:block;width:100%;height:auto;aspect-ratio:var(--ar,3/4);object-fit:cover}
+.stamp figcaption{font:700 11px/1 var(--font-mono);text-transform:uppercase;letter-spacing:.04em;color:var(--fc,var(--ink));padding:8px 2px 13px;display:flex;justify-content:space-between}
+.stamp figcaption::after{content:"50";font-size:15px;line-height:.8}
+.st-1{--fr:var(--rosa);--ar:4/5;width:50%;left:2%;top:3%;transform:rotate(-5deg);z-index:2}
+.st-2{--fr:var(--lima);--ar:4/5;width:46%;right:2%;top:0;transform:rotate(5deg);z-index:1}
+.st-3{--fr:var(--naranja);--ar:1/1;width:46%;right:6%;bottom:2%;transform:rotate(-3deg);z-index:3}
+.st-4{--fr:var(--lila);--ar:4/5;width:27%;left:15%;bottom:9%;transform:rotate(7deg);z-index:4}
+.st-4 .st-in{--r:4px}
+.st-4 img{object-position:50% 20%}
+.st-4 figcaption{font-size:9px;padding:6px 1px 10px}
+.st-4 figcaption::after{font-size:11px}
+.st-sticker{position:absolute;z-index:5;left:-1%;top:-1%;width:46px;height:46px;border-radius:50%;background:var(--verde);color:var(--lima);display:grid;place-items:center;font-size:24px;transform:rotate(12deg);border:1.5px solid var(--ink)}
+@media (max-width:719px){.st-in{--r:4px}.stamp figcaption{font-size:10px}.st-4 figcaption{font-size:8px}.st-sticker{width:38px;height:38px;font-size:20px}}
