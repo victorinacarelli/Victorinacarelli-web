@@ -472,10 +472,10 @@ mark.hl{background:linear-gradient(transparent 50%, var(--rosa) 50%, var(--rosa)
 @media (min-width:720px){.br-d{display:inline}}
 
 /* ===== Mini bio: collage de estampillas ===== */
-.collage{position:relative;width:100%;aspect-ratio:1/1.13;margin-bottom:8px}
+.collage{position:relative;width:100%;aspect-ratio:1/1.02;margin-bottom:8px}
 .stamp{position:absolute;margin:0;filter:drop-shadow(0 8px 14px rgba(58,28,20,.18))}
 .st-in{
-  --r:5px;background:var(--fr,var(--rosa));padding:calc(var(--r)*3) calc(var(--r)*3) 0;
+  --r:5px;background:var(--fr,var(--rosa));padding:calc(var(--r)*3);
   -webkit-mask:radial-gradient(var(--r),#0000 98%,#000) round calc(-1.5*var(--r)) calc(-1.5*var(--r))/calc(3*var(--r)) calc(3*var(--r)),linear-gradient(#000 0 0) no-repeat 50%/calc(100% - 3*var(--r)) calc(100% - 3*var(--r));
           mask:radial-gradient(var(--r),#0000 98%,#000) round calc(-1.5*var(--r)) calc(-1.5*var(--r))/calc(3*var(--r)) calc(3*var(--r)),linear-gradient(#000 0 0) no-repeat 50%/calc(100% - 3*var(--r)) calc(100% - 3*var(--r));
 }
@@ -485,7 +485,7 @@ mark.hl{background:linear-gradient(transparent 50%, var(--rosa) 50%, var(--rosa)
 .st-1{--fr:var(--rosa);--ar:4/5;width:50%;left:2%;top:3%;transform:rotate(-5deg);z-index:2}
 .st-2{--fr:var(--lima);--ar:4/5;width:46%;right:2%;top:0;transform:rotate(5deg);z-index:1}
 .st-3{--fr:var(--naranja);--ar:1/1;width:46%;right:6%;bottom:2%;transform:rotate(-3deg);z-index:3}
-.st-4{--fr:var(--lila);--ar:4/5;width:27%;left:15%;bottom:9%;transform:rotate(7deg);z-index:4}
+.st-4{--fr:var(--lila);--ar:4/5;width:27%;left:15%;bottom:7%;transform:rotate(7deg);z-index:4}
 .st-4 .st-in{--r:4px}
 .st-4 img{object-position:50% 20%}
 .st-4 figcaption{font-size:9px;padding:6px 1px 10px}
