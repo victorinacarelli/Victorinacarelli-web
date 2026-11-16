@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,500;125,700;125,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=38">
+<link rel="stylesheet" href="/assets/site.css?v=39">
 </head>
 <body>
 
@@ -209,9 +209,8 @@
   <!-- CONTACT -->
   <section id="contacto" class="contact" aria-labelledby="ct-title">
     <div class="wrap sec">
-      <p class="eyebrow" style="color:inherit;opacity:.7" data-i18n="ct_eyebrow">Contáctame / presupuestá</p>
       <h2 id="ct-title" data-i18n-html="ct_title">Trabajemos <span class="sel"><i></i>juntos<i></i></span></h2>
-      <p class="lead" data-i18n="ct_lead">Contame qué necesitás y te respondo en menos de 48 horas con una propuesta.</p>
+      <p class="lead" data-i18n="ct_lead">Contame qué necesitás y te respondo con una propuesta.</p>
 
       <div class="c-grid">
         <form id="quote-form" action="https://formspree.io/f/mgakokyd" method="POST" novalidate>
@@ -235,20 +234,11 @@
             <label><input type="radio" name="need" id="need-other" value="Otra cosa"><span data-i18n="f_other">Otra cosa</span></label>
           </fieldset>
           <div class="field">
-            <label for="f-budget" data-i18n="f_budget">Presupuesto aproximado</label>
-            <select id="f-budget" name="budget">
-              <option value="" data-i18n="f_b0">Todavía no sé</option>
-              <option value="1">USD 100 – 300</option>
-              <option value="2">USD 300 – 800</option>
-              <option value="3" data-i18n="f_b3">Más de USD 800</option>
-            </select>
-          </div>
-          <div class="field">
             <label for="f-msg" data-i18n="f_msg">Contame sobre tu proyecto</label>
             <textarea id="f-msg" name="message"></textarea>
           </div>
           <button class="btn btn-primary" type="submit" data-i18n="f_send">Enviar consulta</button>
-          <p class="form-note" id="form-note" data-i18n="f_note">Te respondo en menos de 48 horas.</p>
+          <p class="form-note" id="form-note" data-i18n="f_note"></p>
           <p class="form-ok" id="form-ok" hidden data-i18n="f_ok">¡Gracias! Recibí tu consulta y te escribo pronto.</p>
         </form>
 
@@ -311,9 +301,9 @@
       bio_p2:"Trabajo con emprendedores, marcas y equipos que quieran que sus productos sean intuitivos, accesibles y fáciles de usar.",
       sample_bio:"Bio de ejemplo, la cambiamos por la tuya",f_tools:"Herramientas",f_lang:"Idiomas",f_lang_v:"Español, inglés",f_where:"Desde",f_where_v:"Argentina, para todo el mundo",
       ctx_copy:"Copiar mail",ctx_wa:"Escribirme por WhatsApp",ctx_be:"Ver Behance",ctx_ig:"Ver Instagram",
-      ct_eyebrow:"Contáctame / presupuestá",ct_title:"Trabajemos "+sel("juntos"),ct_lead:"Contame qué necesitás y te respondo en menos de 48 horas con una propuesta.",
+      ct_eyebrow:"Contáctame / presupuestá",ct_title:"Trabajemos "+sel("juntos"),ct_lead:"Contame qué necesitás y te respondo con una propuesta.",
       f_name:"Tu nombre",f_email:"Tu email",f_need:"¿Qué necesitás?",f_other:"Otra cosa",f_budget:"Presupuesto aproximado",f_b0:"Todavía no sé",f_b3:"Más de USD 800",
-      f_msg:"Contame sobre tu proyecto",f_send:"Enviar consulta",f_note:"Te respondo en menos de 48 horas.",
+      f_msg:"Contame sobre tu proyecto",f_send:"Enviar consulta",f_note:"",
       f_ok:"¡Gracias! Recibí tu consulta y te escribo pronto.",f_err:"Completá tu nombre y un email válido.",f_fail:"No se pudo enviar. Probá de nuevo o escribime por WhatsApp.",
       copy:"Copiar",copied:"¡Copiado!",foot:"Diseñado con amor (y muchos post-its)"
     },
@@ -346,9 +336,9 @@
       bio_p2:"I work with founders, brands and teams who want their products to be intuitive, accessible and easy to use.",
       sample_bio:"Sample bio, we'll replace it with yours",f_tools:"Tools",f_lang:"Languages",f_lang_v:"Spanish, English",f_where:"Based in",f_where_v:"Argentina, working worldwide",
       ctx_copy:"Copy email",ctx_wa:"Message me on WhatsApp",ctx_be:"See Behance",ctx_ig:"See Instagram",
-      ct_eyebrow:"Contact / get a quote",ct_title:"Let's work "+sel("together"),ct_lead:"Tell me what you need and I'll reply within 48 hours with a proposal.",
+      ct_eyebrow:"Contact / get a quote",ct_title:"Let's work "+sel("together"),ct_lead:"Tell me what you need and I'll reply with a proposal.",
       f_name:"Your name",f_email:"Your email",f_need:"What do you need?",f_other:"Something else",f_budget:"Approximate budget",f_b0:"Not sure yet",f_b3:"Over USD 800",
-      f_msg:"Tell me about your project",f_send:"Send inquiry",f_note:"I reply within 48 hours.",
+      f_msg:"Tell me about your project",f_send:"Send inquiry",f_note:"",
       f_ok:"Thanks! I got your message and will be in touch soon.",f_err:"Please add your name and a valid email.",f_fail:"It couldn't be sent. Please try again or message me on WhatsApp.",
       copy:"Copy",copied:"Copied!",foot:"Designed with love (and lots of sticky notes)"
     }
