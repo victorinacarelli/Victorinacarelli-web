@@ -18,7 +18,7 @@ def sel(word):
 PAGES = [
     {
         "file": "diseno-web.html",
-        "title": ("Diseño web · Victorina Carelli UX", "Web design · Victorina Carelli UX"),
+        "title": ("Diseño de web personal y landing pages · Victorina Carelli", "Personal websites and landing pages · Victorina Carelli"),
         "color": "var(--lila)",
         "eyebrow": ("Servicios · Diseño web", "Services · Web design"),
         "h1": ("Una web que hable por " + sel("vos"), "A website that speaks for " + sel("you")),
@@ -73,7 +73,7 @@ PAGES = [
     },
     {
         "file": "asesorias.html",
-        "title": ("Asesorías 1:1 · Victorina Carelli UX", "1:1 sessions · Victorina Carelli UX"),
+        "title": ("Asesoría UX 1:1 para emprendedores y diseñadores · Victorina Carelli", "1:1 UX consulting for founders and designers · Victorina Carelli"),
         "color": "var(--lima)",
         "eyebrow": ("Servicios · Asesorías 1:1", "Services · 1:1 sessions"),
         "h1": ("Análisis integral " + sel("360°"), "360° in-depth " + sel("review")),
@@ -127,7 +127,7 @@ PAGES = [
     },
     {
         "file": "corporativas.html",
-        "title": ("Asesorías corporativas · Victorina Carelli UX", "Corporate consulting · Victorina Carelli UX"),
+        "title": ("Consultoría y auditoría UX para empresas · Victorina Carelli", "UX consulting and audits for companies · Victorina Carelli"),
         "color": "var(--naranja)",
         "eyebrow": ("Servicios · Para empresas", "Services · For companies"),
         "h1": ("UX para " + sel("equipos"), "UX for " + sel("teams")),
@@ -202,9 +202,15 @@ HEAD = """<!doctype html>
 <meta name="description" content="{desc}">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23CDB8F6'/%3E%3Cpath d='M18 14l12 34 5-14 14-5z' fill='%232F6BFF' stroke='%231D1630' stroke-width='3' stroke-linejoin='round'/%3E%3C/svg%3E">
 <meta name="theme-color" content="#FDF8F1">
+<link rel="canonical" href="{url}">
 <meta property="og:type" content="website">
+<meta property="og:url" content="{url}">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
+<meta property="og:locale" content="es_AR">
+<meta property="og:site_name" content="Victorina Carelli">
+<meta property="og:image" content="https://victorinacarelli.com.ar/assets/img/victo-hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,500;125,700;125,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -243,7 +249,8 @@ def build(page):
         return f'<{tag}{c} data-i18n="{k}">{html.escape(pair[0])}</{tag}>'
 
     key("page_title", page["title"])
-    out = [HEAD.format(title=html.escape(page["title"][0]), desc=html.escape(page["lead"][0]))]
+    out = [HEAD.format(title=html.escape(page["title"][0]), desc=html.escape(page["lead"][0]),
+                       url="https://victorinacarelli.com.ar/servicios/" + page["file"].removesuffix(".html"))]
     out.append('<main>\n  <section class="hero d-hero">\n    <div class="wrap">')
     out.append('      <nav class="crumbs" aria-label="Ruta"><a href="/" data-i18n="crumb_home">Inicio</a><span>/</span>'
                '<a href="/#servicios" data-i18n="crumb_services">Servicios</a></nav>')

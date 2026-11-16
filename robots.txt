@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://victorinacarelli.com.ar/sitemap.xml
