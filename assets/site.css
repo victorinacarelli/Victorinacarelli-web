@@ -1,8 +1,8 @@
 /* Layout: mobile-first single column; the site is a friendly design canvas —
    selection handles, multiplayer cursors, redlines and pill tags as Victo's own UX vernacular. */
 :root{
-  --bg:#FBF1E3;
-  --surface:#FFF9F1;
+  --bg:#FDF8F1;
+  --surface:#FFFFFF;
   --ink:#3A1C14;
   --muted:#6E4F45;
   --line:#E6D5C2;
@@ -439,13 +439,13 @@ mark.hl{background:linear-gradient(transparent 50%, var(--rosa) 50%, var(--rosa)
 }
 /* Sección con fondo pleno + enrejado y corte ondulado */
 .sec-color{
-  --sec-bg:color-mix(in srgb, var(--lima) 28%, var(--bg));
+  --sec-bg:#FFFFFF;
   position:relative;background-color:var(--sec-bg);
   padding-bottom:120px;margin-bottom:24px;
 }
 .sec-color::after{
   content:"";position:absolute;left:0;right:0;bottom:-1px;height:44px;pointer-events:none;
-  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='44' viewBox='0 0 240 44'%3E%3Cpath d='M0 22 C40 4 80 4 120 22 S200 40 240 22 V44 H0Z' fill='%23FBF1E3'/%3E%3C/svg%3E") repeat-x left bottom/240px 44px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='44' viewBox='0 0 240 44'%3E%3Cpath d='M0 22 C40 4 80 4 120 22 S200 40 240 22 V44 H0Z' fill='%23FDF8F1'/%3E%3C/svg%3E") repeat-x left bottom/240px 44px;
 }
 .sec-color .pains{border:1.5px solid var(--ink)}
 @media (min-width:720px){
