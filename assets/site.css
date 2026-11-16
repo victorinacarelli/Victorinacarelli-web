@@ -502,3 +502,5 @@ mark.hl{background:linear-gradient(transparent 50%, var(--rosa) 50%, var(--rosa)
 .pill3d .emo{position:relative;font-size:18px;line-height:1}
 @media (max-width:719px){.pill3d .emo{font-size:15px}}
 .st-sticker .emo-img{width:72%;height:72%;display:block}
+.st-sticker > .emo{font-size:26px;line-height:1}
+@media (max-width:719px){.st-sticker > .emo{font-size:22px}}
