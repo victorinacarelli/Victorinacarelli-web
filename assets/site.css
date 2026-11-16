@@ -150,10 +150,11 @@ p{margin:0}
 
 /* ---------- Marquee ---------- */
 .marquee{background:var(--verde);color:var(--on-pastel);overflow:hidden;border-bottom:1.5px solid var(--on-pastel);border-top:1.5px solid var(--on-pastel)}
-.marquee .track{display:flex;width:max-content;animation:slide 28s linear infinite}
+.marquee{position:relative;isolation:isolate}
+.marquee .track{display:flex;width:max-content;animation:slide 28s linear infinite;will-change:transform;transform:translate3d(0,0,0);-webkit-backface-visibility:hidden;backface-visibility:hidden}
 .marquee span{font:600 15px/1 var(--font-body);padding:12px 18px;white-space:nowrap;display:flex;align-items:center;gap:18px}
 .marquee span::after{content:"✦";font-size:13px}
-@keyframes slide{to{transform:translateX(-50%)}}
+@keyframes slide{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
 @media (prefers-reduced-motion: reduce){.marquee .track{animation:none}}
 
 /* ---------- Sections ---------- */
