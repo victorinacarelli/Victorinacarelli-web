@@ -2,7 +2,7 @@
    Para cambiar herramientas (GA4, Meta Pixel, etc.) se usa Tag Manager, no este archivo.
    Solo hay que tocar acá el ID del contenedor. */
 (function(){
-  var GTM_ID = ""; // ej. "GTM-ABC1234". Vacío = no carga Tag Manager (solo el banner, para pruebas).
+  var GTM_ID = "GTM-WSXQKMH6"; // ej. "GTM-ABC1234". Vacío = no carga Tag Manager (solo el banner, para pruebas).
   var KEY = "victo-consent";
 
   var w = window, d = document;
