@@ -297,7 +297,7 @@ footer{padding-block:28px;border-top:1px solid color-mix(in srgb, var(--bg) 18%,
   .hero .wrap{grid-template-columns:1.25fr .85fr;align-items:center;padding-block:64px 72px}
   .grid.three{grid-template-columns:repeat(2,1fr)}
   .grid.three .wide{grid-column:1/-1}
-  .bio{grid-template-columns:.8fr 1.2fr;align-items:start}
+  .bio{grid-template-columns:.8fr 1.2fr;align-items:center}
   .c-grid{grid-template-columns:1.2fr .8fr}
   .pains{padding:44px 32px;gap:16px 12px}
   .sec{padding-block:96px}
@@ -498,3 +498,6 @@ mark.hl{background:linear-gradient(transparent 50%, var(--rosa) 50%, var(--rosa)
 .pill3d::before{content:"";position:absolute;left:12%;right:12%;top:6%;height:38%;border-radius:40% 40% 50% 50%;background:linear-gradient(rgba(255,255,255,.28),rgba(255,255,255,0))}
 .pill3d svg{position:relative}
 .form-note:empty{display:none}
+.st-sticker-2{left:auto;top:auto;right:3%;bottom:0;transform:rotate(-10deg)}
+.pill3d .emo{position:relative;font-size:18px;line-height:1}
+@media (max-width:719px){.pill3d .emo{font-size:15px}}
