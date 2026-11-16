@@ -63,8 +63,8 @@
 
   /* 4) Banner de cookies */
   var TXT = {
-    es: { title: "cookies.txt", body: "Uso cookies para saber cómo llegás a mi web y qué te interesa. Así la mejoro para vos.", ok: "Aceptar", no: "Solo las necesarias", pref: "Cookies" },
-    en: { title: "cookies.txt", body: "I use cookies to learn how you found my site and what you like, so I can make it better for you.", ok: "Accept", no: "Only necessary", pref: "Cookies" }
+    es: { title: "cookies.txt", body: "Uso cookies para saber cómo llegás a mi web y qué te interesa.", ok: "Aceptar", no: "Solo las necesarias", pref: "Cookies" },
+    en: { title: "cookies.txt", body: "I use cookies to learn how you found my site and what you like.", ok: "Accept", no: "Only necessary", pref: "Cookies" }
   };
   function lang(){ return (d.documentElement.lang || "es").slice(0,2) === "en" ? "en" : "es"; }
   var CSS =
