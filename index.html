@@ -20,6 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,500;125,700;125,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="/assets/site.css?v=44">
+<script src="/assets/tracking.js?v=1"></script>
 <link rel="preload" as="image" href="/assets/img/victo-hero.webp" type="image/webp" fetchpriority="high">
 <script type="application/ld+json">
 {
@@ -441,7 +442,7 @@
     note.textContent = T[lang].f_note; note.style.color = "";
     const btn = form.querySelector('button[type="submit"]'); btn.disabled = true;
     fetch(form.action, {method:"POST", headers:{"Accept":"application/json"}, body:new FormData(form)})
-      .then(r=>{ if(!r.ok) throw 0; ok.hidden = false; form.reset(); })
+      .then(r=>{ if(!r.ok) throw 0; const sv=(form.querySelector('input[name="need"]:checked')||{}).value||""; if(window.victoTrack) victoTrack("generate_lead",{form_id:"quote-form",service:sv,page_path:location.pathname}); ok.hidden = false; form.reset(); })
       .catch(()=>{ note.textContent = T[lang].f_fail; note.style.color = "#C2410C"; })
       .finally(()=>{ btn.disabled = false; });
   });
