@@ -106,6 +106,8 @@
   }
   function init(){
     var st = d.createElement("style"); st.textContent = CSS; d.head.appendChild(st);
+    /* Sin ID de Tag Manager no hay nada que consentir: no se muestra el banner (salvo ?cookies=1 para probarlo). */
+    if (!GTM_ID && !/[?&]cookies=1/.test(location.search)) return;
     var foot = d.querySelector("main footer, .mini-foot, footer");
     if (foot) {
       var p = d.createElement("button"); p.type = "button"; p.className = "cb-pref"; p.textContent = TXT[lang()].pref;
