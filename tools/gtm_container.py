@@ -69,11 +69,11 @@ def main(gtm_id, ga_id, pixel_id=None):
         ]:
             tags.append({"tagId": nid(), "name": name, "type": "html",
                          "parameter": [t("html", html), t("supportDocumentWrite", "false", "BOOLEAN")],
-                         "firingTriggerId": [trig], "tagFiringOption": "ONCE_PER_PAGE" if "Base" in name else "ONCE_PER_EVENT"})
+                         "firingTriggerId": [trig], "tagFiringOption": "ONCE_PER_LOAD" if "Base" in name else "ONCE_PER_EVENT"})
 
     out = {
         "exportFormatVersion": 2,
-        "exportTime": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S"),
+        "exportTime": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M:%S"),
         "containerVersion": {
             "path": "accounts/0/containers/0/versions/0", "accountId": "0", "containerId": "0", "containerVersionId": "0",
             "container": {"path": "accounts/0/containers/0", "accountId": "0", "containerId": "0",
