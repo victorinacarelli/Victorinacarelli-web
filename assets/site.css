@@ -114,7 +114,7 @@ p{margin:0}
 .hero .ctas{display:flex;flex-wrap:wrap;gap:10px}
 .photo{
   position:relative;aspect-ratio:4/5;max-width:100%;width:100%;
-  border-radius:var(--r-card);background:var(--lila);color:var(--on-pastel);
+  border-radius:var(--r-card);background:var(--rosa);color:var(--on-pastel);
   display:grid;place-items:center;text-align:center;overflow:visible;
 }
 .photo .ph{
@@ -173,7 +173,7 @@ section{scroll-margin-top:70px}
 .pain:nth-child(1){background:var(--rosa);transform:rotate(-4deg)}
 .pain:nth-child(2){background:var(--lima);transform:rotate(3deg)}
 .pain:nth-child(3){background:var(--naranja);transform:rotate(-2deg)}
-.pain:nth-child(4){background:var(--lila);transform:rotate(5deg)}
+.pain:nth-child(4){background:var(--lima);transform:rotate(5deg)}
 .pain:nth-child(5){background:var(--verde);color:var(--lima);transform:rotate(-5deg)}
 .pain:nth-child(6){background:var(--rosa);transform:rotate(2deg)}
 .pains-foot{margin-top:22px;font-size:18px;max-width:46ch}
@@ -213,7 +213,7 @@ section{scroll-margin-top:70px}
   border-radius:var(--r-card);padding:22px 20px;color:var(--on-pastel);display:grid;gap:14px;align-content:start;
   border:1.5px solid var(--on-pastel)
 }
-.service.s1{background:var(--lila)}
+.service.s1{background:var(--rosa)}
 .service.s2{background:var(--lima)}
 .service.s3{background:var(--naranja)}
 .service h3{font-size:28px;font-weight:800}
@@ -388,7 +388,7 @@ footer{padding-block:28px;border-top:1px solid color-mix(in srgb, var(--bg) 18%,
 }
 
 /* Real photo in hero */
-.photo-real{background:var(--lila);padding:0}
+.photo-real{background:var(--bg);padding:0}
 .photo-real picture,.photo-real img{display:block;width:100%;height:100%;border-radius:var(--r-card);object-fit:cover;object-position:50% 35%}
 .photo-real img{border:1.5px solid var(--ink)}
 
@@ -407,7 +407,7 @@ footer{padding-block:28px;border-top:1px solid color-mix(in srgb, var(--bg) 18%,
 /* Especialidades: texto con puntito de color de la paleta (no parecen botones) */
 .skills{margin:0;display:flex;flex-wrap:wrap;align-items:center;gap:8px 20px;font:500 15px/1.4 var(--font-body);color:var(--ink)}
 .skills .tag{border:0;background:none;padding:0;font:inherit;border-radius:0;display:inline-flex;align-items:center;gap:8px}
-.skills .tag::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--lila);flex:none}
+.skills .tag::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--naranja);flex:none}
 .skills .tag:nth-child(2)::before{background:var(--lima)}
 .skills .tag:nth-child(3)::before{background:var(--rosa)}
 .skills .tag:nth-child(4)::before{background:var(--verde)}
@@ -461,7 +461,7 @@ mark.hl{background:linear-gradient(transparent 50%, var(--rosa) 50%, var(--rosa)
 .solution .pains-foot{margin:0;max-width:none}
 .solution .pains-foot strong{font-size:clamp(22px,3vw,30px)}
 .solution .pains-cta{margin-top:20px}
-.sol-tag{position:absolute;top:-30px;left:16px;font:600 12px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;padding:11px 16px;border-radius:999px;border:1.5px solid var(--ink);background:var(--lila);transform:rotate(-6deg)}
+.sol-tag{position:absolute;top:-30px;left:16px;font:600 12px/1 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;padding:11px 16px;border-radius:999px;border:1.5px solid var(--ink);background:var(--rosa);transform:rotate(-6deg)}
 @media (min-width:720px){.solution{padding:40px 48px 34px}.sol-tag{left:32px;font-size:13px}}
 .br-d{display:none}
 @media (min-width:720px){.br-d{display:inline}}
@@ -480,7 +480,7 @@ mark.hl{background:linear-gradient(transparent 50%, var(--rosa) 50%, var(--rosa)
 .st-1{--fr:var(--rosa);--ar:4/5;width:50%;left:2%;top:3%;transform:rotate(-5deg);z-index:2}
 .st-2{--fr:var(--lima);--ar:4/5;width:46%;right:2%;top:0;transform:rotate(5deg);z-index:1}
 .st-3{--fr:var(--naranja);--ar:1/1;width:46%;right:6%;bottom:2%;transform:rotate(-3deg);z-index:3}
-.st-4{--fr:var(--lila);--ar:4/5;width:27%;left:15%;bottom:7%;transform:rotate(7deg);z-index:4}
+.st-4{--fr:var(--verde);--ar:4/5;width:27%;left:15%;bottom:7%;transform:rotate(7deg);z-index:4}
 .st-4 .st-in{--r:4px}
 .st-4 img{object-position:50% 20%}
 .st-4 figcaption{font-size:9px;padding:6px 1px 10px}
