@@ -214,26 +214,38 @@ HEAD = """<!doctype html>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,500;125,700;125,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=45">
+<link rel="stylesheet" href="/assets/site.css?v=46">
 <script src="/assets/tracking.js?v=4"></script>
 </head>
 <body>
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="/">victorinacarelli<span>.</span>ux</a>
     <nav class="nav" aria-label="Secciones">
-      <a href="/#portfolio" data-i18n="nav_portfolio">Portfolio</a>
       <a href="/#servicios" data-i18n="nav_services">Servicios</a>
+      <a href="/#portfolio" data-i18n="nav_portfolio">Portfolio</a>
       <a href="/#bio" data-i18n="nav_bio">Sobre mí</a>
       <a href="/#contacto" data-i18n="nav_contact">Contacto</a>
     </nav>
-    <div class="lang" role="group" aria-label="Idioma / Language">
-      <button type="button" id="lang-es" aria-pressed="true" data-lang="es" aria-label="Ver en español">ES</button>
-      <button type="button" id="lang-en" aria-pressed="false" data-lang="en" aria-label="View in English">EN</button>
+    <a class="logo" href="/">victorinacarelli<span>.</span>ux</a>
+    <div class="top-right">
+      <div class="lang" role="group" aria-label="Idioma / Language">
+        <button type="button" id="lang-es" aria-pressed="true" data-lang="es" aria-label="Ver en español">ES</button>
+        <button type="button" id="lang-en" aria-pressed="false" data-lang="en" aria-label="View in English">EN</button>
+      </div>
+      <a class="btn btn-primary btn-sm top-cta" href="/#contacto" data-i18n="cta_short">Presupuestá</a>
+      <button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="mmenu" aria-label="Abrir menú"><i></i><i></i><i></i></button>
     </div>
-    <a class="btn btn-primary btn-sm" href="/#contacto" data-i18n="cta_short">Presupuestá</a>
   </div>
 </header>
+<div class="mmenu" id="mmenu" hidden>
+  <nav aria-label="Menú">
+    <a href="/#servicios" data-i18n="nav_services">Servicios</a>
+    <a href="/#portfolio" data-i18n="nav_portfolio">Portfolio</a>
+    <a href="/#bio" data-i18n="nav_bio">Sobre mí</a>
+    <a href="/#contacto" data-i18n="nav_contact">Contacto</a>
+  </nav>
+  <a class="btn btn-primary mm-cta" href="/#contacto" data-i18n="cta_quote">Pedí tu presupuesto →</a>
+</div>
 """
 
 
@@ -323,7 +335,7 @@ def build(page):
     out.append("  </div></section>\n</main>")
 
     out.append("<script>window.PAGE_T = " + json.dumps({"es": es, "en": en}, ensure_ascii=False) + ";</script>")
-    out.append('<script src="/assets/site.js"></script>\n</body>\n</html>\n')
+    out.append('<script src="/assets/site.js?v=2"></script>\n<script src="/assets/menu.js?v=1"></script>\n</body>\n</html>\n')
     (ROOT / "servicios" / page["file"]).write_text("\n".join(out), encoding="utf-8")
 
 

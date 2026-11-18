@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,500;125,700;125,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=45">
+<link rel="stylesheet" href="/assets/site.css?v=46">
 <script src="/assets/tracking.js?v=4"></script>
 <link rel="preload" as="image" href="/assets/img/victo-hero.webp" type="image/webp" fetchpriority="high">
 <script type="application/ld+json">
@@ -504,20 +504,6 @@
   fit();
 })();
 </script>
-<script>
-(function(){
-  const b=document.getElementById("burger"), m=document.getElementById("mmenu");
-  if(!b||!m) return;
-  function set(open){
-    m.hidden=!open; b.setAttribute("aria-expanded",open);
-    b.setAttribute("aria-label",open?"Cerrar menú":"Abrir menú");
-    document.documentElement.classList.toggle("menu-open",open);
-  }
-  b.addEventListener("click",()=>set(m.hidden));
-  m.addEventListener("click",e=>{ if(e.target.closest("a")) set(false); });
-  document.addEventListener("keydown",e=>{ if(e.key==="Escape"&&!m.hidden){ set(false); b.focus(); } });
-  window.matchMedia("(min-width:960px)").addEventListener("change",e=>{ if(e.matches) set(false); });
-})();
-</script>
+<script src="/assets/menu.js?v=1"></script>
 </body>
 </html>

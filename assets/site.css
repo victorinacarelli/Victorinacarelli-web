@@ -508,9 +508,9 @@ mark.hl{background:linear-gradient(transparent 50%, var(--rosa) 50%, var(--rosa)
 .menu-open .burger i:nth-child(2){opacity:0}
 .menu-open .burger i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 .top-cta{display:none}
-.menu-open .top{background:var(--lila);border-bottom-color:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
+.menu-open .top{background:var(--naranja);border-bottom-color:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
 .menu-open body{overflow:hidden}
-.mmenu{position:fixed;inset:0;z-index:19;background:var(--lila);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:40px;padding:100px 24px calc(40px + env(safe-area-inset-bottom,0px));animation:mmin .25s ease}
+.mmenu{position:fixed;inset:0;z-index:19;background:var(--naranja);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:40px;padding:100px 24px calc(40px + env(safe-area-inset-bottom,0px));animation:mmin .25s ease}
 .mmenu[hidden]{display:none}
 .mmenu nav{display:grid;justify-items:center;gap:6px}
 .mmenu nav a{font-family:var(--font-display);font-stretch:125%;font-weight:800;font-size:clamp(36px,11vw,52px);letter-spacing:-.02em;line-height:1.15;text-decoration:none;color:var(--ink)}
@@ -527,3 +527,4 @@ mark.hl{background:linear-gradient(transparent 50%, var(--rosa) 50%, var(--rosa)
   .top-right{justify-self:end}
   .burger,.mmenu{display:none !important}
 }
+.menu-open .top .logo span{color:var(--bg)}
