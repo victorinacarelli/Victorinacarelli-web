@@ -19,7 +19,7 @@ PAGES = [
     {
         "file": "diseno-web.html",
         "title": ("Diseño de web personal y landing pages · Victorina Carelli", "Personal websites and landing pages · Victorina Carelli"),
-        "color": "var(--lila)",
+        "color": "var(--rosa)",
         "eyebrow": ("Servicios · Diseño web", "Services · Web design"),
         "h1": ("Una web que hable por " + sel("vos"), "A website that speaks for " + sel("you")),
         "lead": (
