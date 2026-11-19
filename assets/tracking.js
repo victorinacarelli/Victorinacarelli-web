@@ -84,6 +84,7 @@
     "#cookie-banner button{font:600 14px/1 var(--font-body,system-ui,sans-serif);border-radius:999px;padding:11px 16px;border:1.5px solid var(--ink,#3A1C14);cursor:pointer;transition:transform .15s,box-shadow .15s}" +
     "#cookie-banner .cb-ok{background:var(--ink,#3A1C14);color:var(--bg,#FDF8F1);flex:1 1 auto}" +
     "#cookie-banner .cb-no{background:transparent;color:var(--ink,#3A1C14)}" +
+    "@media (max-width:600px){#cookie-banner{font-size:13.5px;line-height:1.35;box-shadow:3px 3px 0 var(--naranja,#FF6B2C);border-radius:14px}#cookie-banner .cb-bar{padding:6px 10px}#cookie-banner .cb-bar i{width:8px;height:8px}#cookie-banner .cb-emo{display:none}#cookie-banner .cb-body{padding:10px 14px 0}#cookie-banner .cb-body p{margin:0}#cookie-banner .cb-btns{flex-wrap:nowrap;padding:10px 14px 12px}#cookie-banner button{padding:9px 14px;font-size:13px;white-space:nowrap}#cookie-banner .cb-ok{flex:1 1 auto}#cookie-banner .cb-no{flex:0 0 auto}}" +
     "@media (hover:hover){#cookie-banner button:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--naranja,#FF6B2C)}}" +
     ".cb-pref{font:inherit;color:inherit;background:none;border:0;padding:0;text-decoration:underline;text-underline-offset:3px;cursor:pointer;opacity:.9}";
 

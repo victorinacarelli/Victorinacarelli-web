@@ -19,8 +19,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,500;125,700;125,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=48">
-<script src="/assets/tracking.js?v=4"></script>
+<link rel="stylesheet" href="/assets/site.css?v=49">
+<script src="/assets/tracking.js?v=5"></script>
 <link rel="preload" as="image" href="/assets/img/victo-hero.webp" type="image/webp" fetchpriority="high">
 <script type="application/ld+json">
 {
@@ -90,7 +90,7 @@
         <button type="button" id="lang-es" aria-pressed="true" data-lang="es" aria-label="Ver en español">ES</button>
         <button type="button" id="lang-en" aria-pressed="false" data-lang="en" aria-label="View in English">EN</button>
       </div>
-      <a class="btn btn-primary btn-sm top-cta" href="#contacto" data-i18n="cta_short">Presupuestá</a>
+      <a class="btn btn-primary btn-sm top-cta" href="#contacto" data-i18n="cta_short">Hablemos</a>
       <button type="button" class="burger" id="burger" aria-expanded="false" aria-controls="mmenu" aria-label="Abrir menú"><i></i><i></i><i></i></button>
     </div>
   </div>
@@ -102,8 +102,13 @@
     <a href="#bio" data-i18n="nav_bio">Sobre mí</a>
     <a href="#contacto" data-i18n="nav_contact">Contacto</a>
   </nav>
-  <a class="btn btn-primary mm-cta" href="#contacto" data-i18n="cta_quote">Pedí tu presupuesto →</a>
+  <a class="btn btn-primary mm-cta" href="#contacto" data-i18n="cta_quote">Hablemos →</a>
 </div>
+
+<a class="wa-fab" href="https://wa.me/5491165683621?text=Hola%20Victo%2C%20vi%20tu%20web%20y%20quiero%20consultarte%20por%20" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4a.5.5 0 0 0 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.7 2.2.7 3 .6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3z"/></svg>
+  <span>WhatsApp</span>
+</a>
 
 <main>
   <!-- HERO -->
@@ -112,15 +117,14 @@
       <div style="display:grid;gap:22px;min-width:0">
         <h1 data-i18n-html="hero_title">Diseño <span class="rot"><span class="sr-only">apps, webs, landings y experiencias</span><span class="rot-win" aria-hidden="true"><span class="rot-track"><span>experiencias</span><span class="on">apps</span><span>webs</span><span>landings</span><span>experiencias</span><span>apps</span><span>webs</span></span></span></span> <span class="h-end">que <span class="sel"><i></i>funcionan<i></i></span></span></h1>
         <div class="ctas">
-          <a class="btn btn-primary" href="#contacto" data-i18n="cta_quote">Pedí tu presupuesto →</a>
+          <a class="btn btn-primary" href="#contacto" data-i18n="cta_quote">Hablemos →</a>
           <a class="btn btn-ghost" href="#portfolio" data-i18n="cta_work">Ver proyectos</a>
         </div>
-        <p class="skills" aria-label="Especialidades">
-          <span class="tag">UX research</span>
-          <span class="tag">UI design</span>
-          <span class="tag">Wireframes</span>
-          <span class="tag" data-i18n="tag_writing">UX writing</span>
-          <span class="tag" data-i18n="tag_ai">Diseño de web</span>
+        <p class="skills" aria-label="Lo que buscás">
+          <span class="tag" data-i18n="tag_b1">Más consultas</span>
+          <span class="tag" data-i18n="tag_b2">Fáciles de usar</span>
+          <span class="tag" data-i18n="tag_b3">Diseño a medida</span>
+          <span class="tag" data-i18n="tag_b4">Pensadas para el celular</span>
         </p>
       </div>
       <div style="min-width:0;display:grid;gap:10px">
@@ -164,7 +168,7 @@
       <div class="solution">
         <span class="sol-tag" data-i18n="sol_tag">Mi diagnóstico</span>
       <p class="pains-foot"><strong data-i18n-html="pains_foot_t">Casi siempre, es un problema en la <mark class="hl">experiencia<br class="br-d"> que le damos al usuario</mark>.</strong><span data-i18n="pains_foot">Mi solución: ayudarte a entenderlo y diseñar a partir de eso.</span></p>
-        <div class="ctas pains-cta"><a class="btn btn-primary" href="#contacto" data-i18n="pains_cta">Cotizá tu proyecto →</a></div>
+        <div class="ctas pains-cta"><a class="btn btn-primary" href="#contacto" data-i18n="pains_cta">Hablemos →</a></div>
       </div>
     </div>
   </section>
@@ -305,7 +309,7 @@
             <label for="f-msg" data-i18n="f_msg">Contame sobre tu proyecto</label>
             <textarea id="f-msg" name="message"></textarea>
           </div>
-          <button class="btn btn-primary" type="submit" data-i18n="f_send">Enviar consulta</button>
+          <button class="btn btn-primary" type="submit" data-i18n="f_send">Enviar</button>
           <p class="form-note" id="form-note" data-i18n="f_note"></p>
           <p class="form-ok" id="form-ok" hidden data-i18n="f_ok">¡Gracias! Recibí tu consulta y te escribo pronto.</p>
         </form>
@@ -318,20 +322,16 @@
           <a class="channel" href="https://wa.me/5491165683621" target="_blank" rel="noopener">
             <div><small>WhatsApp</small><strong>+54 9 11 6568-3621</strong></div><span class="arrow">↗</span>
           </a>
-          <a class="channel" href="https://www.instagram.com/victorinacarelli.ux" target="_blank" rel="noopener">
-            <div><small>Instagram</small><strong>@victorinacarelli.ux</strong></div><span class="arrow">↗</span>
-          </a>
-          <a class="channel" href="https://www.behance.net/victoricarelli" target="_blank" rel="noopener">
-            <div><small>Behance</small><strong>victoricarelli</strong></div><span class="arrow">↗</span>
-          </a>
-          <a class="channel" href="https://www.linkedin.com/in/victorinacarelli" target="_blank" rel="noopener">
-            <div><small>LinkedIn</small><strong>victorinacarelli</strong></div><span class="arrow">↗</span>
-          </a>
         </div>
       </div>
 
       <footer>
         <span>© 2026 Victorina Carelli</span>
+        <nav class="foot-social" aria-label="Redes">
+          <a href="https://www.instagram.com/victorinacarelli.ux" target="_blank" rel="noopener">Instagram ↗</a>
+          <a href="https://www.behance.net/victoricarelli" target="_blank" rel="noopener">Behance ↗</a>
+          <a href="https://www.linkedin.com/in/victorinacarelli" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </nav>
         <span data-i18n="foot">Diseñado con amor (y muchos post-its)</span>
       </footer>
     </div>
@@ -344,16 +344,16 @@
   const rot = (ws, label) => { const items=[ws[ws.length-1]].concat(ws, ws.slice(0,2)); return '<span class="rot"><span class="sr-only">'+label+'</span><span class="rot-win" aria-hidden="true"><span class="rot-track">'+items.map((w,i)=>'<span'+(i===1?' class="on"':'')+'>'+w+'</span>').join('')+'</span></span></span>'; };
   const T = {
     es:{
-      nav_portfolio:"Portfolio",nav_services:"Servicios",nav_bio:"Sobre mí",nav_contact:"Contacto",cta_short:"Presupuestá",
+      nav_portfolio:"Portfolio",nav_services:"Servicios",nav_bio:"Sobre mí",nav_contact:"Contacto",cta_short:"Hablemos",
       hero_eyebrow:"UX/UI Designer · Asesorías · Diseño web",
       hero_title:"Diseño "+rot(["apps","webs","landings","experiencias"],"apps, webs, landings y experiencias")+" <span class=\"h-end\">que "+sel("funcionan")+"</span>",
       hero_lead:"Ordeno lo que tenés en la cabeza y lo convierto en una experiencia clara, linda y que vende.",
-      cta_quote:"Pedí tu presupuesto →",cta_work:"Ver proyectos",tag_writing:"UX writing",tag_ai:"Diseño de web",
+      cta_quote:"Hablemos →",cta_work:"Ver proyectos",tag_b1:"Más consultas",tag_b2:"Fáciles de usar",tag_b3:"Diseño a medida",tag_b4:"Pensadas para el celular",
       ph_photo:"Tu foto recortada acá",ph_photo_hint:"pose divertida, fondo liso",ph_photo2:"Otra foto tuya",cursor_you:"Vos",
       marquee:["UX research","UI design","Asesorías","Diseño de web","Prototipos","Tests de usabilidad"],
       pains_eyebrow:"Diagnóstico rápido",pains_title:"¿Tu producto digital "+sel("no")+" está funcionando?",
       pain1:"La gente entra, pero se va enseguida.",pain2:"Tengo visitas, pero nadie me contacta.",pain3:"Mi web ya no representa mi marca.",pain4:"Desde el celular se ve todo desordenado.",pain5:"Tengo una idea, pero no sé cómo arrancar.",pain6:"Mis clientes siempre me preguntan lo mismo.",
-      pains_cta:"Cotizá tu proyecto →",sol_tag:"Mi diagnóstico",pains_foot_t:'Casi siempre, es un problema en la <mark class="hl">experiencia<br class="br-d"> que le damos al usuario</mark>.',pains_foot:"Mi solución: ayudarte a entenderlo y diseñar a partir de eso.",
+      pains_cta:"Hablemos →",sol_tag:"Mi diagnóstico",pains_foot_t:'Casi siempre, es un problema en la <mark class="hl">experiencia<br class="br-d"> que le damos al usuario</mark>.',pains_foot:"Mi solución: ayudarte a entenderlo y diseñar a partir de eso.",
       pf_eyebrow:"Portfolio",pf_title:"Lo que podemos hacer "+sel("juntos"),sample:"Ejemplo",chip_ai:"Con IA",
       p1_t:"VotaYa",p1_d:"Ver el caso ↗",chip_web:"Plataforma web",chip_redesign:"Rediseño",
       p2_t:"Sempre",p2_d:"Ver la web ↗",chip_live:"Foodie web",
@@ -372,23 +372,23 @@
       bio_p2:"Trabajo con emprendedores, marcas y equipos que quieran que sus productos sean intuitivos, accesibles y fáciles de usar.",
       sample_bio:"Bio de ejemplo, la cambiamos por la tuya",f_tools:"Herramientas",f_lang:"Idiomas",f_lang_v:"Español, inglés",f_where:"Desde",f_where_v:"Argentina, para todo el mundo",
       ctx_copy:"Copiar mail",ctx_wa:"Escribirme por WhatsApp",ctx_be:"Ver Behance",ctx_ig:"Ver Instagram",
-      ct_eyebrow:"Contáctame / presupuestá",ct_title:"Trabajemos "+sel("juntos"),ct_lead:"Contame qué necesitás y te respondo con una propuesta.",
+      ct_eyebrow:"Hablemos",ct_title:"Trabajemos "+sel("juntos"),ct_lead:"Contame qué necesitás y te respondo con una propuesta.",
       f_name:"Tu nombre",f_email:"Tu email",f_need:"¿Qué necesitás?",f_other:"Otra cosa",f_budget:"Presupuesto aproximado",f_b0:"Todavía no sé",f_b3:"Más de USD 800",
-      f_msg:"Contame sobre tu proyecto",f_send:"Enviar consulta",f_note:"",
+      f_msg:"Contame sobre tu proyecto",f_send:"Enviar",f_note:"",
       f_ok:"¡Gracias! Recibí tu consulta y te escribo pronto.",f_err:"Completá tu nombre y un email válido.",f_fail:"No se pudo enviar. Probá de nuevo o escribime por WhatsApp.",
       copy:"Copiar",copied:"¡Copiado!",foot:"Diseñado con amor (y muchos post-its)"
     },
     en:{
-      nav_portfolio:"Work",nav_services:"Services",nav_bio:"About",nav_contact:"Contact",cta_short:"Get a quote",
+      nav_portfolio:"Work",nav_services:"Services",nav_bio:"About",nav_contact:"Contact",cta_short:"Let's talk",
       hero_eyebrow:"UX/UI Designer · Consulting · Web design",
       hero_title:"I design "+rot(["apps","websites","landings","experiences"],"apps, websites, landings and experiences")+" <span class=\"h-end\">that "+sel("work")+"</span>",
       hero_lead:"I take the idea in your head and turn it into an experience that is clear, beautiful and sells.",
-      cta_quote:"Get a quote →",cta_work:"See my work",tag_writing:"UX writing",tag_ai:"Web design",
+      cta_quote:"Let's talk →",cta_work:"See my work",tag_b1:"More inquiries",tag_b2:"Easy to use",tag_b3:"Tailor-made",tag_b4:"Built for mobile",
       ph_photo:"Your cut-out photo here",ph_photo_hint:"fun pose, plain background",ph_photo2:"Another photo of you",cursor_you:"You",
       marquee:["UX research","UI design","Consulting","Web design","Prototypes","Usability testing"],
       pains_eyebrow:"Quick check",pains_title:"Is your digital product "+sel("not")+" working?",
       pain1:"People come in, but leave right away.",pain2:"I get visits, but nobody contacts me.",pain3:"My website no longer reflects my brand.",pain4:"On mobile everything looks messy.",pain5:"I have an idea, but don't know how to start.",pain6:"My clients always ask me the same thing.",
-      pains_cta:"Get a quote →",sol_tag:"My diagnosis",pains_foot_t:'Most of the time, it\'s a problem with the <mark class="hl">experience<br class="br-d"> we give the user</mark>.',pains_foot:"My solution: help you understand it and design from there.",
+      pains_cta:"Let's talk →",sol_tag:"My diagnosis",pains_foot_t:'Most of the time, it\'s a problem with the <mark class="hl">experience<br class="br-d"> we give the user</mark>.',pains_foot:"My solution: help you understand it and design from there.",
       pf_eyebrow:"Work",pf_title:"What we can do "+sel("together"),sample:"Sample",chip_ai:"AI-built",
       p1_t:"VotaYa",p1_d:"See the case ↗",chip_web:"Web platform",chip_redesign:"Redesign",
       p2_t:"Sempre",p2_d:"Visit the site ↗",chip_live:"Foodie web",
@@ -407,9 +407,9 @@
       bio_p2:"I work with founders, brands and teams who want their products to be intuitive, accessible and easy to use.",
       sample_bio:"Sample bio, we'll replace it with yours",f_tools:"Tools",f_lang:"Languages",f_lang_v:"Spanish, English",f_where:"Based in",f_where_v:"Argentina, working worldwide",
       ctx_copy:"Copy email",ctx_wa:"Message me on WhatsApp",ctx_be:"See Behance",ctx_ig:"See Instagram",
-      ct_eyebrow:"Contact / get a quote",ct_title:"Let's work "+sel("together"),ct_lead:"Tell me what you need and I'll reply with a proposal.",
+      ct_eyebrow:"Let's talk",ct_title:"Let's work "+sel("together"),ct_lead:"Tell me what you need and I'll reply with a proposal.",
       f_name:"Your name",f_email:"Your email",f_need:"What do you need?",f_other:"Something else",f_budget:"Approximate budget",f_b0:"Not sure yet",f_b3:"Over USD 800",
-      f_msg:"Tell me about your project",f_send:"Send inquiry",f_note:"",
+      f_msg:"Tell me about your project",f_send:"Send",f_note:"",
       f_ok:"Thanks! I got your message and will be in touch soon.",f_err:"Please add your name and a valid email.",f_fail:"It couldn't be sent. Please try again or message me on WhatsApp.",
       copy:"Copy",copied:"Copied!",foot:"Designed with love (and lots of sticky notes)"
     }

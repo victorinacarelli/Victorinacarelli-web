@@ -528,3 +528,19 @@ mark.hl{background:linear-gradient(transparent 50%, var(--rosa) 50%, var(--rosa)
   .burger,.mmenu{display:none !important}
 }
 .menu-open .top .logo span{color:var(--bg)}
+
+/* ---------- WhatsApp flotante (mobile y tablet) ---------- */
+.wa-fab{
+  position:fixed;z-index:50;right:max(16px,env(safe-area-inset-right,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));
+  display:inline-flex;align-items:center;gap:8px;padding:12px 18px 12px 14px;border-radius:var(--r-pill);
+  background:var(--lima);color:var(--ink);border:1.5px solid var(--ink);box-shadow:3px 3px 0 var(--ink);
+  font:600 15px/1 var(--font-body);text-decoration:none;transition:transform .2s ease,box-shadow .2s ease
+}
+.wa-fab:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+body:has(#cookie-banner) .wa-fab,.menu-open .wa-fab{display:none}
+@media (min-width:960px){.wa-fab{display:none}}
+
+/* ---------- Redes en el footer ---------- */
+.foot-social{display:flex;flex-wrap:wrap;gap:16px}
+.foot-social a{color:inherit;text-decoration:none;border-bottom:1px solid currentColor}
+@media (max-width:959px){main footer{padding-bottom:84px}}
