@@ -19,7 +19,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,500;125,700;125,800&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="/assets/site.css?v=58">
+<link rel="stylesheet" href="/assets/site.css?v=59">
 <script src="/assets/tracking.js?v=8"></script>
 <link rel="preload" as="image" href="/assets/img/victo-hero.webp" type="image/webp" fetchpriority="high">
 <script type="application/ld+json">
@@ -425,8 +425,14 @@
   function renderMarquee(){
     const items = T[lang].marquee;
     const m = document.getElementById("marquee");
-    const html = items.concat(items).concat(items).concat(items).map(t=>"<span>"+t+"</span>").join("");
-    m.innerHTML = html;
+    /* Dos secuencias iguales que se desplazan juntas: cada capa es chica (iOS Safari deja en blanco capas animadas muy anchas). */
+    const one = items.map(t=>"<span>"+t+"</span>").join("");
+    m.innerHTML = '<div class="seq">'+one+'</div>';
+    const seq = m.firstChild, w1 = seq.scrollWidth || 1;
+    const reps = Math.max(1, Math.ceil((window.innerWidth || 1024) / w1));
+    seq.innerHTML = one.repeat(reps);
+    m.innerHTML = '<div class="seq">'+seq.innerHTML+'</div><div class="seq" aria-hidden="true">'+seq.innerHTML+'</div>';
+    m.style.setProperty("--mq-dur", (14 * reps) + "s"); /* misma velocidad que antes: ~14 s por cada vuelta de palabras */
   }
   function setLang(l){
     lang = l;
@@ -438,6 +444,7 @@
     try{localStorage.setItem("victo-lang", l)}catch(e){}
   }
   document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
+  { let lw = window.innerWidth, rt; window.addEventListener("resize",()=>{ clearTimeout(rt); rt=setTimeout(()=>{ if(window.innerWidth>lw){ lw=window.innerWidth; renderMarquee(); } },200); }); }
   let saved=null; try{saved=localStorage.getItem("victo-lang")}catch(e){}
   setLang(saved==="en"?"en":"es");
 
