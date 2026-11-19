@@ -251,7 +251,7 @@ section{scroll-margin-top:70px}
 /* Contact */
 .contact{background:var(--ink);color:var(--bg);border-radius:28px 28px 0 0}
 .contact .sec{padding-block:64px 40px}
-.contact h2{font-size:clamp(44px, 13vw, 96px);font-weight:800;line-height:.98}
+.contact h2{font-size:clamp(36px, 10.5vw, 96px);font-weight:800;line-height:.98}
 .contact .sel{background:color-mix(in srgb, var(--select) 30%, transparent)}
 .contact .lead{color:color-mix(in srgb, var(--bg) 75%, transparent);font-size:18px;max-width:42ch;margin-top:16px}
 .c-grid{display:grid;gap:28px;margin-top:36px}

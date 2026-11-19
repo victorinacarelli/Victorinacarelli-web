@@ -5,7 +5,15 @@
 /dm         /?utm_source=instagram&utm_medium=social&utm_campaign=dm#contacto  302
 /in         /?utm_source=linkedin&utm_medium=social&utm_campaign=perfil  302
 /post       /?utm_source=linkedin&utm_medium=social&utm_campaign=post  302
-/mentorias  /servicios/asesorias?utm_source=linkedin&utm_medium=social&utm_campaign=post-asesorias  302
+/mentorias  /?utm_source=linkedin&utm_medium=social&utm_campaign=post-asesorias#servicios  302
 /mail       /?utm_source=gmail&utm_medium=email&utm_campaign=firma  302
 /wa         /?utm_source=whatsapp&utm_medium=social&utm_campaign=mensaje  302
 /google     /?utm_source=google&utm_medium=organic&utm_campaign=business-profile  302
+
+# Lanzamiento: páginas de detalle de servicios desactivadas temporalmente (los archivos siguen en /servicios).
+/servicios/diseno-web        /#servicios  302
+/servicios/diseno-web.html   /#servicios  302
+/servicios/asesorias         /#servicios  302
+/servicios/asesorias.html    /#servicios  302
+/servicios/corporativas      /#servicios  302
+/servicios/corporativas.html /#servicios  302
