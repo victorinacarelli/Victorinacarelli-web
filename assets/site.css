@@ -560,3 +560,16 @@ main footer{padding-bottom:84px}
 .rot-win{height:var(--rh)}
 .rot-track{margin-top:calc(var(--rh) * -1)}
 .rot-track>span{opacity:1}
+
+/* ---------- Diagnóstico + Cómo trabajo: versión liviana en mobile ---------- */
+@media (max-width:719px){
+  .solution{display:flex;flex-direction:column}
+  .solution .pains-foot strong{font-size:24px;line-height:1.2}
+  .solution .pains-foot span{font-size:16px}
+  .sol-kicker{margin-bottom:12px}
+  .sol-side{margin-top:28px}
+  .dsteps li{padding:12px 0;grid-template-columns:34px 1fr;align-items:baseline}
+  .dsteps strong{font-size:16px;margin:0}
+  .dsteps span{display:none}
+  .solution>.pains-cta{order:5;margin-top:24px}
+}
