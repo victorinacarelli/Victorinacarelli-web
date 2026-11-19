@@ -554,3 +554,4 @@ body:has(#cookie-banner) .wa-fab,.menu-open .wa-fab{display:none}
 main footer{padding-bottom:84px}
 @media (min-width:960px){.wa-fab{right:max(28px,env(safe-area-inset-right,0px));bottom:28px}}
 @media (min-width:1200px){.skills{gap:8px 14px;font-size:14px;flex-wrap:nowrap}}
+@media (max-width:719px){.bio .bio-text{order:-1}}
