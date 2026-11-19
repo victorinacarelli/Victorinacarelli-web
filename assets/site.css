@@ -555,3 +555,16 @@ main footer{padding-bottom:84px}
 @media (min-width:960px){.wa-fab{right:max(28px,env(safe-area-inset-right,0px));bottom:28px}}
 @media (min-width:1200px){.skills{gap:8px 14px;font-size:14px;flex-wrap:nowrap}}
 @media (max-width:719px){.bio .bio-text{order:-1}}
+
+/* ---------- Primera pantalla mobile simplificada ---------- */
+@media (max-width:719px){
+  .rot-win{height:var(--rh)}
+  .rot-track{margin-top:calc(var(--rh) * -1)}
+  .rot-track>span{opacity:1}
+  .hero .skills{order:1;font-size:14px;gap:6px 14px;opacity:.85}
+  .hero .ctas{order:2;flex-direction:column;align-items:stretch;gap:14px}
+  .hero .ctas .btn-primary{justify-content:center;padding:16px 20px;font-size:17px}
+  .hero .ctas .btn-ghost{border:0;padding:0;background:none;text-decoration:underline;text-underline-offset:4px;align-self:center}
+  .hero .ctas .btn-ghost:hover{transform:none;box-shadow:none}
+  html:not(.scrolled) .wa-fab{display:none}
+}
