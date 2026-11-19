@@ -115,9 +115,8 @@
       p.addEventListener("click", openBanner); foot.appendChild(p);
     }
     if (!saved || !saved.s) {
-      /* En mobile, el aviso aparece recién cuando la persona empieza a bajar (primera pantalla limpia). */
-      var small = w.matchMedia && w.matchMedia("(max-width:719px)").matches;
-      if (small && (w.scrollY || 0) < 120) {
+      /* El aviso aparece recién cuando la persona empieza a bajar (primera pantalla limpia). */
+      if ((w.scrollY || 0) < 120) {
         var onScroll = function(){ if ((w.scrollY || 0) >= 120) { w.removeEventListener("scroll", onScroll); openBanner(); } };
         w.addEventListener("scroll", onScroll, { passive: true });
       } else openBanner();
